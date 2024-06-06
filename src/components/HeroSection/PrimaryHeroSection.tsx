@@ -10,7 +10,7 @@ function PrimaryHeroSection() {
         <div className="flex items-end">
           <Image src={swag} alt="" className="" />
           <h1 className="text-6xl font-extrabold tracking-wide">
-            Hello! I'm <span className="yellow">Vikash Sharma</span>
+            Hello! I&apos;m <span className="yellow">Vikash Sharma</span>
           </h1>
         </div>
         <h1 className="text-3xl my-7">

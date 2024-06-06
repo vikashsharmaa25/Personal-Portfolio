@@ -65,7 +65,7 @@ function About() {
         </div>
         <div className="bg-[#181818] mt-10 p-12 rounded-[55px]">
           <h1 className="text-xl tracking-wide leading-loose">
-            A passionate Front End Developer with a Master's in Computer
+            A passionate Front End Developer with a Master&apos;s in Computer
             Application and over 4 years of experience in crafting captivating
             digital experiences. My expertise lies in leveraging cutting-edge
             technologies such as ReactJS, NextJS, Apollo GraphQL, Redux, React

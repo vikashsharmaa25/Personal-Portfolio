@@ -25,7 +25,7 @@ function Experience() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[16%] aspect-square bg-[#ffc935] rounded-full blur-lg  -z-10"></div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-4 bg-black rounded-full pr-10 px-[1px]">
-                  <img
+                  <Image
                     src={experience.logo}
                     alt={experience.companyName}
                     className="w-20 h-20 rounded-full"
