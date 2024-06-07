@@ -16,6 +16,8 @@ function SecondryHeroSection() {
           <Image
             src={profile}
             alt="Profile"
+            width={600}
+            height={600}
             className="w-[600px] relative z-10"
           />
 

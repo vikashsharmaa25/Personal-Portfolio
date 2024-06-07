@@ -16,12 +16,17 @@ function Skills() {
           </h1>
         </div>
         <div className="my-20 flex justify-center items-center gap-4 flex-wrap">
-          {skillsData.map((skill) => (
+          {skillsData.map((skill: any) => (
             <div
               key={skill.id}
               className="flex items-center gap-4 rounded-full bg-[#E7E7E7] w-max py-2 px-5"
             >
-              <Image src={skill.image} alt={skill.name} />
+              <Image
+                src={skill.image}
+                alt={skill.name}
+                width={50}
+                height={50}
+              />
               <h2 className="text-black font-medium text-xl">{skill.name}</h2>
             </div>
           ))}

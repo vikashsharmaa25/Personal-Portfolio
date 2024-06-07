@@ -21,6 +21,8 @@ function Discuss() {
             <Image
               src={vikash}
               alt=""
+              width={100}
+              height={100}
               className="w-36 rounded-full h-36 border border-yellow-400 p-2"
             />
             <h1 className="yellow font-extrabold my-6 text-5xl">

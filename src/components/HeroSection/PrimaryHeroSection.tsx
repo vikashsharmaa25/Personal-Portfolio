@@ -8,7 +8,7 @@ function PrimaryHeroSection() {
     <>
       <div className="min-h-[32vw] flex flex-col justify-center items-center">
         <div className="flex items-end">
-          <Image src={swag} alt="" className="" />
+          <Image src={swag} alt="" width={100} height={100} className="" />
           <h1 className="text-6xl font-extrabold tracking-wide">
             Hello! I&apos;m <span className="yellow">Vikash Sharma</span>
           </h1>

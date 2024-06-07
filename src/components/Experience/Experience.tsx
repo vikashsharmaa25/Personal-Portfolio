@@ -16,8 +16,9 @@ function Experience() {
             Exeperience
           </h1>
         </div>
+
         <div className="space-y-6 mt-16">
-          {experienceData.map((experience) => (
+          {experienceData.map((experience: any) => (
             <div
               key={experience.id}
               className="bg-white bg-opacity-70 hover:bg-opacity-100 duration-300 shadow p-6 text-black rounded-[40px] relative group"
@@ -29,6 +30,8 @@ function Experience() {
                     src={experience.logo}
                     alt={experience.companyName}
                     className="w-20 h-20 rounded-full"
+                    width={100}
+                    height={100}
                   />
                   <div>
                     <h2 className="text-2xl yellow font-bold">
@@ -45,11 +48,11 @@ function Experience() {
                 </div>
               </div>
               <h3 className="text-3xl my-10 font-bold mb-3 flex items-center gap-6">
-                <Image src={roleImage} alt="" />
+                <Image src={roleImage} width={100} height={100} alt="" />
                 {experience.role}
               </h3>
               <ul className="list-disc list-inside space-y-2 mt-8 pl-6">
-                {experience.responsibility.map((item, index) => (
+                {experience.responsibility.map((item: any, index: any) => (
                   <li
                     key={index}
                     className="text-[17px] font-medium tracking-wide"

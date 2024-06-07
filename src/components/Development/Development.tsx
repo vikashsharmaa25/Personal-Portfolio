@@ -20,7 +20,12 @@ function Development() {
               key={develop.id}
               className="flex items-center gap-4 rounded-full bg-[#E7E7E7] w-max py-2 px-5"
             >
-              <Image src={develop.image} alt={develop.name} />
+              <Image
+                src={develop.image}
+                alt={develop.name}
+                width={50}
+                height={50}
+              />
               <h2 className="text-black font-medium text-xl">{develop.name}</h2>
             </div>
           ))}
