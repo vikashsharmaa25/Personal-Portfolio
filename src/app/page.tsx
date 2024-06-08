@@ -9,6 +9,7 @@ import Footer from "@/components/Footer/Footer";
 import PrimaryHeroSection from "@/components/HeroSection/PrimaryHeroSection";
 import SecondryHeroSection from "@/components/HeroSection/SecondryHeroSection";
 import Navbar from "@/components/Navbar/Navbar";
+import Project from "@/components/PersonalProject/Project";
 import Resume from "@/components/Resume/Resume";
 import Skills from "@/components/Skills/Skills";
 import Image from "next/image";
@@ -26,6 +27,7 @@ export default function Home() {
         <Skills />
         <Development />
         <Resume />
+        <Project />
         <Discuss />
         <Connect />
         <ContactMe />

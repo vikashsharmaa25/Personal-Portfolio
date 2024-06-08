@@ -10,10 +10,10 @@ function Experience() {
       <div className="mb-32 mt-10">
         <div className="relative text-center">
           <h1 className="text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
-            Exeperience
+            Experience
           </h1>
           <h1 className="text-7xl font-extrabold yellow opacity-5 text-outline text-center">
-            Exeperience
+            Experience
           </h1>
         </div>
 

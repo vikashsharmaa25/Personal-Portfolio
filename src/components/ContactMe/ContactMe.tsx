@@ -18,22 +18,22 @@ function ContactMe() {
           <input
             type="text"
             placeholder="Full Name"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl"
+            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
           />
           <input
             type="text"
             placeholder="Email"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl"
+            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
           />
           <input
             type="text"
             placeholder="Mobile No."
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl"
+            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
           />
           <input
             type="text"
             placeholder="Subject"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl"
+            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
           />
         </div>
         <div className="w-full relative">
@@ -41,7 +41,7 @@ function ContactMe() {
             name=""
             id=""
             placeholder="Message"
-            className="w-full text-xl font-semibold outline-none text-black p-8 border border-gray-400 rounded-3xl min-h-[250px]"
+            className="w-full text-xl font-semibold outline-none p-8 border border-gray-400 rounded-3xl min-h-[250px] text-gray-600"
           ></textarea>
           <div className="absolute -bottom-40 right-0">
             <Image src={personLogo} alt="" width={350} height={350} />

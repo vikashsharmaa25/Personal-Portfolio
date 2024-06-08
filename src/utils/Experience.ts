@@ -14,7 +14,7 @@ const experienceData: Experience[] = [
     id: 1,
     logo: "https://media.licdn.com/dms/image/C4D0BAQHKVMFH-niXIg/company-logo_200_200/0/1637757773341?e=2147483647&v=beta&t=vntN1K4lDPVnScvv95bDBlo0MlqO_jOGRQ0NzqEa5kc",
     companyName: "QuadB Technology",
-    location: "Ludhiyana, India",
+    location: "Ludhiana, India",
     date: "Aug-2023 - Present",
     role: "Front End Developer",
     technology: "React.js",
