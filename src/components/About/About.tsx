@@ -5,7 +5,7 @@ import { FaHeadphones, FaCar, FaMountain, FaMoneyBill } from "react-icons/fa";
 function About() {
   return (
     <>
-      <div className="min-h-screen mt-16">
+      <div className="mt-16">
         <div className="relative text-center ">
           <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             About Me
