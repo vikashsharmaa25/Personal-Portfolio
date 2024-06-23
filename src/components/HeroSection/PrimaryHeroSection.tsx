@@ -2,12 +2,21 @@ import React from "react";
 import swag from "@/assets/hero-hand.c9d1e315.svg";
 import Image from "next/image";
 import { GoArrowDown } from "react-icons/go";
+import background from "@/assets/bg-vector.svg";
 
 function PrimaryHeroSection() {
   return (
     <>
-      <div className="min-h-[32vw] flex flex-col justify-center items-center sm:mt-0 mt-10">
-        <div className="flex md:flex-row flex-col md:items-end items-center sm:mt-0 mt-10">
+      <div
+        className="min-h-[32vw] flex flex-col justify-center items-center xl:mt-0 lg:mt-10 md:mt-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${background.src})`,
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex md:flex-row flex-col md:items-end items-center md:mt-0 mt-10">
           <Image src={swag} alt="" width={100} height={100} className="" />
           <h1 className="lg:text-6xl text-center sm:text-5xl text-3xl font-extrabold tracking-wide">
             Hello! I&apos;m <span className="yellow">Vikash Sharma</span>

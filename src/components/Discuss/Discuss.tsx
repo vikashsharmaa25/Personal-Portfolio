@@ -28,7 +28,7 @@ function Discuss() {
             <h1 className="yellow font-extrabold my-6 sm:text-5xl text-4xl text-center w-full">
               Vikash Sharma
             </h1>
-            <h1 className="sm:text-3xl text-[19px] font-light">
+            <h1 className="sm:text-3xl text-[19px] font-light text-center">
               Front End Developer / Web Designer
             </h1>
             <div className="mt-10 flex gap-4 items-center">
