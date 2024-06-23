@@ -7,17 +7,17 @@ import roleImage from "@/assets/asset 24.svg";
 function Experience() {
   return (
     <>
-      <div className="mb-32 mt-10">
+      <div className="sm:mb-32 mb-10 sm:mt-10 mt-20">
         <div className="relative text-center">
-          <h1 className="text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
+          <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Experience
           </h1>
-          <h1 className="text-7xl font-extrabold yellow opacity-5 text-outline text-center">
+          <h1 className="sm:text-7xl text-5xl font-extrabold yellow opacity-5 text-outline text-center">
             Experience
           </h1>
         </div>
 
-        <div className="space-y-6 mt-16">
+        <div className="space-y-6 sm:mt-16 mt-5">
           {experienceData.map((experience: any) => (
             <div
               key={experience.id}
@@ -29,12 +29,12 @@ function Experience() {
                   <Image
                     src={experience.logo}
                     alt={experience.companyName}
-                    className="w-20 h-20 rounded-full"
+                    className="sm:w-20 sm:h-20 w-12 rounded-full"
                     width={100}
                     height={100}
                   />
                   <div>
-                    <h2 className="text-2xl yellow font-bold">
+                    <h2 className="sm:text-2xl text-xl yellow font-bold">
                       {experience.companyName}
                     </h2>
                     <p className="text-white font-semibold tracking-wider">
@@ -42,7 +42,7 @@ function Experience() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 bg-white rounded-full text-black px-5 py-2 font-extrabold text-xl uppercase group-hover:bg-orange-100">
+                <div className="md:flex hidden items-center gap-4 bg-white rounded-full text-black px-5 py-2 font-extrabold text-xl uppercase group-hover:bg-orange-100">
                   <MdDateRange className="text-3xl" />
                   {experience.date}
                 </div>

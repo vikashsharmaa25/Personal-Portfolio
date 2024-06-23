@@ -12,10 +12,10 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ projectData }) => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex gap-4 overflow-x-auto hide-scrollbar">
       {projectData.map((project) => (
         <CardContainer key={project.id} className="inter-var">
-          <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+          <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] min-w-[30rem] max-w-[30rem] h-auto rounded-xl p-6 border">
             <CardItem
               translateZ="50"
               className="text-xl font-bold text-neutral-600 dark:text-white"

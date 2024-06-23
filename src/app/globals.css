@@ -3,20 +3,50 @@
 @tailwind utilities;
 
 body {
-  background-color: #0C0C0C;
+  background-color: #0c0c0c;
   color: white;
-  font-family: Poppins,sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
-.yellow{
-  color: #FEB901;
+.yellow {
+  color: #feb901;
 }
 
 .text-shadow {
   text-shadow: 2px 2px 0 #000;
 }
- .text-outline {
-   color: transparent;
-   -webkit-text-stroke-width: 2px;
-   -webkit-text-stroke-color: yellow;
- }
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: yellow;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(69, 69, 58);
+  border-radius: 50%;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(69, 69, 58) transparent;
+}

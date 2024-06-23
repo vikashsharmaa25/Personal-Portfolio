@@ -8,89 +8,71 @@ import react from "@/assets/asset 8.svg";
 import graphql from "@/assets/asset 9.svg";
 import figma from "@/assets/asset 12.svg";
 
-function SecondryHeroSection() {
+function SecondaryHeroSection() {
+  const skills = [
+    {
+      name: "NextJS",
+      image: next,
+      position: "top-8 left-0 sm:top-16 sm:-left-4 lg:top-32 lg:-left-14",
+    },
+    {
+      name: "ReactJS",
+      image: react,
+      position: "top-24 left-0 sm:top-36 sm:-left-8 lg:top-72 lg:-left-32",
+    },
+    {
+      name: "GraphQL",
+      image: graphql,
+      position:
+        "bottom-8 left-0 sm:bottom-16 sm:-left-4 lg:bottom-24 lg:-left-16",
+    },
+    {
+      name: "Tailwind CSS",
+      image: tailwind,
+      position: "top-8 right-0 sm:top-16 sm:-right-4 lg:top-32 lg:-right-20",
+    },
+    {
+      name: "JavaScript",
+      image: javascript,
+      position: "top-24 right-0 sm:top-36 sm:-right-8 lg:top-72 lg:-right-40",
+    },
+    {
+      name: "Figma",
+      image: figma,
+      position:
+        "bottom-8 right-0 sm:bottom-16 sm:-right-4 lg:bottom-24 lg:-right-16",
+    },
+  ];
+
   return (
-    <>
-      <div className="flex justify-center items-center mt-8 relative">
-        <div className="relative">
-          <Image
-            src={profile}
-            alt="Profile"
-            width={600}
-            height={600}
-            className="w-[600px] relative z-10"
-          />
+    <div className="flex justify-center items-center mt-8 relative px-4 sm:px-8 lg:px-16">
+      <div className="relative">
+        <Image
+          src={profile}
+          alt="Profile"
+          width={600}
+          height={600}
+          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[600px] relative z-10"
+        />
 
-          <div className=" flex flex-col items-start gap-4">
-            <div className="flex items-center font-bold gap-2 bg-[#EBEAE7] px-7 py-3 rounded-full text-black text-xl absolute top-32 -left-14">
-              <Image
-                src={next}
-                alt="NextJS"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">NextJS</span>
-            </div>
-            <div className="flex items-center font-bold gap-2 bg-[#EBEAE7] px-7 py-3 rounded-full text-black text-xl absolute top-72 -left-32">
-              <Image
-                src={react}
-                alt="ReactJS"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">ReactJS</span>
-            </div>
-            <div className="flex items-center font-bold gap-2 bg-[#EBEAE7] px-7 py-3 rounded-full text-black text-xl absolute bottom-24 -left-16">
-              <Image
-                src={graphql}
-                alt="GraphQL"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">GraphQL</span>
-            </div>
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className={`absolute flex items-center font-bold gap-2 bg-[#EBEAE7] px-3 sm:px-4 lg:px-7 py-2 sm:py-3 rounded-full text-black text-xs sm:text-sm md:text-base lg:text-xl ${skill.position}`}
+          >
+            <Image
+              src={skill.image}
+              alt={skill.name}
+              width={40}
+              height={24}
+              className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+            />
+            <span className="ml-1 sm:ml-2">{skill.name}</span>
           </div>
-
-          <div className="flex flex-col items-end gap-4">
-            <div className="flex items-center font-bold px-7 bg-[#EBEAE7] py-3 rounded-full text-black text-xl absolute top-32 -right-20">
-              <Image
-                src={tailwind}
-                alt="Tailwind CSS"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">Tailwind CSS</span>
-            </div>
-            <div className="flex items-center font-bold gap-2 bg-[#EBEAE7] px-7 py-3 rounded-full text-black text-xl absolute top-72 -right-40">
-              <Image
-                src={javascript}
-                alt="JavaScript"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">JavaScript</span>
-            </div>
-            <div className="flex items-center font-bold gap-2 bg-[#EBEAE7] px-7 py-3 rounded-full text-black text-xl absolute bottom-24 -right-16">
-              <Image
-                src={figma}
-                alt="Figma"
-                width={40}
-                height={24}
-                className="-ml-2"
-              />
-              <span className="ml-2">Figma</span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-      {/* <hr /> */}
-    </>
+    </div>
   );
 }
 
-export default SecondryHeroSection;
+export default SecondaryHeroSection;

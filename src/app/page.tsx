@@ -17,7 +17,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <main className="max-w-[1350px] mx-auto poppins-regular">
+      <main className="max-w-[1350px] mx-auto poppins-regular p-2">
         <Navbar />
         <PrimaryHeroSection />
         <SecondryHeroSection />

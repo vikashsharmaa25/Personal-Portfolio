@@ -5,12 +5,12 @@ import personLogo from "@/assets/asset 77.svg";
 function ContactMe() {
   return (
     <>
-      <div className="bg-white p-14 rounded-[40px] mb-9">
+      <div className="bg-white sm:p-14 p-4 rounded-[40px] mb-9">
         <div className="relative text-center">
-          <h1 className="text-6xl font-extrabold text-gray-800 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
+          <h1 className="sm:text-6xl text-3xl w-full font-extrabold text-gray-800 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Contact Me
           </h1>
-          <h1 className="text-7xl font-extrabold text-gray-800 opacity-0 text-outline text-center">
+          <h1 className="sm:text-7xl text-4xl  font-extrabold text-gray-800 opacity-0 text-outline text-center">
             Contact Me
           </h1>
         </div>
@@ -43,8 +43,14 @@ function ContactMe() {
             placeholder="Message"
             className="w-full text-xl font-semibold outline-none p-8 border border-gray-400 rounded-3xl min-h-[250px] text-gray-600"
           ></textarea>
-          <div className="absolute -bottom-40 right-0">
-            <Image src={personLogo} alt="" width={350} height={350} />
+          <div className="absolute sm:-bottom-44 -bottom-32 sm:right-0 -right-5">
+            <Image
+              src={personLogo}
+              alt=""
+              width={350}
+              height={350}
+              className="sm:w-[350px] sm:h-[350px] w-[250px] h-[250px]"
+            />
           </div>
         </div>
         <div className="mt-4">
@@ -53,7 +59,9 @@ function ContactMe() {
           </button>
         </div>
       </div>
-      <hr />
+      <div className="sm:mt-11 mt-10">
+        <hr />
+      </div>
     </>
   );
 }

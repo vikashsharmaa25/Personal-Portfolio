@@ -7,29 +7,29 @@ import { RiSchoolFill } from "react-icons/ri";
 function Education() {
   return (
     <>
-      <div className="my-32">
+      <div className="sm:my-32">
         <div className="relative text-center">
-          <h1 className="text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
+          <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Education
           </h1>
-          <h1 className="text-7xl font-extrabold yellow opacity-5 text-outline text-center">
+          <h1 className="sm:text-7xl text-5xl font-extrabold yellow opacity-5 text-outline text-center">
             Education
           </h1>
         </div>
-        <div className="flex  space-x-8 my-20">
+        <div className="md:flex gap-4 sm:my-20 my-4">
           {educationData.map((education: EducationData) => (
             <div
               key={education.id}
-              className="bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative group duration-300"
+              className="bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative group duration-300 md:mt-0 mt-3"
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square bg-[#ffc935] rounded-full blur-lg  -z-10"></div>
               <div className="flex justify-between items-center mb-4 ">
-                <div className="flex items-center space-x-2 bg-black yellow rounded-full px-4 py-1 text-xl font-bold">
-                  <MdDateRange className="text-4xl" />
+                <div className="flex items-center space-x-2 bg-black yellow rounded-full sm:px-4 px-2 py-1 sm:text-xl font-bold">
+                  <MdDateRange className="sm:text-4xl text-xl" />
                   <p className="">{education.date}</p>
                 </div>
-                <div className="flex items-center gap-2 text-xl font-semibold bg-white text-gray-800 px-5 py-2 rounded-full group-hover:bg-orange-100">
-                  <FaGraduationCap className="text-3xl" />
+                <div className="flex items-center gap-2 sm:text-xl font-semibold bg-white text-gray-800 sm:px-5 px-2 sm:py-2 py-1 rounded-full group-hover:bg-orange-100">
+                  <FaGraduationCap className="sm:text-3xl" />
                   {education.degree}
                 </div>
               </div>
