@@ -3,6 +3,7 @@ import swag from "@/assets/hero-hand.c9d1e315.svg";
 import Image from "next/image";
 import { GoArrowDown } from "react-icons/go";
 import background from "@/assets/bg-vector.svg";
+import Link from "next/link";
 
 function PrimaryHeroSection() {
   return (
@@ -36,12 +37,19 @@ function PrimaryHeroSection() {
           Experience
         </h1>
         <div className="mt-10 flex gap-4 items-center">
-          <button className="flex items-center gap-2 sm:py-[16px] py-1 px-3 sm:px-8  yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150">
-            <span>
-              <GoArrowDown />
-            </span>
-            Resume
-          </button>
+          <a
+            href="https://drive.google.com/file/d/1soqmJGGusM8MRvy0x2YeBmrUJupojhvI/view"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="flex items-center gap-2 sm:py-[16px] py-1 px-3 sm:px-8 yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150">
+              <span>
+                <GoArrowDown />
+              </span>
+              Resume
+            </button>
+          </a>
+
           <button className="sm:py-[16px] py-1 px-3 sm:px-8  bg-[#FEB901] hover:bg-opacity-5 hover:text-[#FEB901] text-black sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150">
             Hire Me
           </button>
