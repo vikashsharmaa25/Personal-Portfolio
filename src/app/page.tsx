@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useRef } from "react";
 import About from "@/components/About/About";
 import Connect from "@/components/ConnectWithMe/Connect";
 import ContactMe from "@/components/ContactMe/ContactMe";
@@ -12,27 +15,34 @@ import Navbar from "@/components/Navbar/Navbar";
 import Project from "@/components/PersonalProject/Project";
 import Resume from "@/components/Resume/Resume";
 import Skills from "@/components/Skills/Skills";
-import Image from "next/image";
 
 export default function Home() {
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <>
-      <main className="max-w-[1350px] mx-auto poppins-regular p-2">
-        <Navbar />
-        <PrimaryHeroSection />
-        <SecondryHeroSection />
-        <About />
-        <Education />
-        <Experience />
-        <Skills />
-        <Development />
-        <Resume />
-        <Project />
-        <Discuss />
-        <Connect />
+    <main className="max-w-[1350px] mx-auto p-2">
+      <Navbar />
+      <PrimaryHeroSection scrollToContact={scrollToContact} />
+      <SecondryHeroSection />
+      <About scrollToContact={scrollToContact} />
+      <Education />
+      <Experience />
+      <Skills />
+      <Development />
+      <Resume />
+      <Project />
+      <Discuss scrollToContact={scrollToContact} />
+      <Connect />
+      <div ref={contactRef}>
         <ContactMe />
-        <Footer />
-      </main>
-    </>
+      </div>
+      <Footer />
+    </main>
   );
 }

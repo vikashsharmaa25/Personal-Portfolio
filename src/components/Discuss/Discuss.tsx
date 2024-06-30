@@ -4,7 +4,7 @@ import vikash from "@/assets/vikash.jpeg";
 import { GoArrowDown } from "react-icons/go";
 import { IoIosChatbubbles } from "react-icons/io";
 
-function Discuss() {
+function Discuss({ scrollToContact }: any) {
   return (
     <>
       <div className="my-20">
@@ -32,13 +32,22 @@ function Discuss() {
               Front End Developer / Web Designer
             </h1>
             <div className="mt-10 flex gap-4 items-center">
-              <button className="flex items-center gap-2 sm:py-[16px] py-1 sm:px-8 px-2  yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150">
+              <a
+                href="https://drive.google.com/file/d/1soqmJGGusM8MRvy0x2YeBmrUJupojhvI/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 sm:py-[16px] py-1 sm:px-8 px-2  yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150"
+              >
                 <span>
                   <GoArrowDown />
                 </span>
                 Resume
-              </button>
-              <button className="sm:py-[16px] py-1 sm:px-8 px-2 bg-[#FEB901] hover:bg-opacity-5 hover:text-[#FEB901] text-black sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150 flex gap-4 items-center">
+              </a>
+
+              <button
+                onClick={scrollToContact}
+                className="sm:py-[16px] py-1 sm:px-8 px-2 bg-[#FEB901] hover:bg-opacity-5 hover:text-[#FEB901] text-black sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150 flex gap-4 items-center"
+              >
                 <IoIosChatbubbles className="sm:text-3xl" />
                 Discuss Project
               </button>

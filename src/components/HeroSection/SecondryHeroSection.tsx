@@ -87,8 +87,8 @@ function SecondaryHeroSection() {
       <Image
         src={ProfileTwo}
         alt=""
-        width={10000}
-        height={10000}
+        width={9000}
+        height={9000}
         className="sm:w-[80%] w-[100%]"
       />
     </div>

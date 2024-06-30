@@ -4,7 +4,7 @@ import { MdOutlineSegment } from "react-icons/md";
 function Navbar() {
   return (
     <>
-      <div className="flex justify-between items-center md:h-[90px] h-10 bg-white w-full text-black rounded-full mt-8 px-6  whitespace-normal tracking-tight">
+      <div className="flex justify-between items-center md:h-[90px] h-10 bg-white w-full text-black rounded-full mt-4 px-6  whitespace-normal tracking-tight">
         <div>
           <h1 className="-ml-4 md:text-[26px] uppercase">
             <span className="bg-black text-white rounded-full md:p-5 p-2">

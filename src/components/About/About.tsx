@@ -4,7 +4,7 @@ import { CiMobile1 } from "react-icons/ci";
 import { FaHeadphones, FaCar, FaMountain, FaMoneyBill } from "react-icons/fa";
 import Marquee from "react-fast-marquee";
 
-function About() {
+function About({ scrollToContact }: any) {
   const [isXL, setIsXL] = useState(false);
 
   useEffect(() => {
@@ -124,7 +124,10 @@ function About() {
           </h1>
         </div>
         <div className="text-center my-20 flex justify-center items-center">
-          <button className="px-10 py-4 bg-[#FEB901] hover:bg-[#FEB901] hover:text-black duration-200 text-2xl font-semibold rounded-full bg-opacity-5 border border-[#FEB901] yellow flex gap-4 items-center">
+          <button
+            onClick={scrollToContact}
+            className="px-10 py-4 bg-[#FEB901] hover:bg-[#FEB901] hover:text-black duration-200 text-2xl font-semibold rounded-full bg-opacity-5 border border-[#FEB901] yellow flex gap-4 items-center"
+          >
             <CiMobile1 className="text-3xl font-extrabold" />
             Contact Me
           </button>
