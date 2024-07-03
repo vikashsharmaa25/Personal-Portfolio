@@ -7,7 +7,7 @@ import { IoIosChatbubbles } from "react-icons/io";
 function Discuss({ scrollToContact }: any) {
   return (
     <>
-      <div className="my-20">
+      <div className="mt-24">
         <div className="relative text-center">
           <h1 className="sm:text-6xl text-3xl w-full font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Discuss Projects
@@ -16,7 +16,7 @@ function Discuss({ scrollToContact }: any) {
             Discuss Projects
           </h1>
         </div>
-        <div className="bg-[#181818] flex justify-center items-center rounded-[40px] sm:p-16 p-6 mt-20">
+        <div className="bg-[#181818] flex justify-center items-center rounded-[40px] sm:p-16 p-6 mt-6">
           <div className="flex flex-col items-center">
             <Image
               src={vikash}

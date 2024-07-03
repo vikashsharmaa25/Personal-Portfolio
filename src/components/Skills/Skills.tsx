@@ -4,8 +4,8 @@ import skillsData from "@/utils/Skills";
 
 function Skills() {
   return (
-    <div className="container mx-auto px-4">
-      <div className="relative text-center py-10">
+    <div className="px-4 mt-10">
+      <div className="relative text-center pt-7">
         <h1 className="sm:text-6xl text-4xl md:text-5xl lg:text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
           Skills
         </h1>
@@ -13,7 +13,7 @@ function Skills() {
           Skills
         </h1>
       </div>
-      <div className="my-2 sm:my-16 md:my-20 flex justify-center items-center gap-3 sm:gap-4 flex-wrap">
+      <div className="flex justify-center items-center gap-3 sm:gap-4 flex-wrap">
         {skillsData.map((skill) => (
           <div
             key={skill.id}

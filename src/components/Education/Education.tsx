@@ -7,7 +7,7 @@ import { RiSchoolFill } from "react-icons/ri";
 function Education() {
   return (
     <>
-      <div className="sm:my-32">
+      <div className="">
         <div className="relative text-center">
           <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Education
@@ -16,7 +16,7 @@ function Education() {
             Education
           </h1>
         </div>
-        <div className="md:flex gap-4 sm:my-20 my-4">
+        <div className="md:flex gap-4 mt-8">
           {educationData.map((education: EducationData) => (
             <div
               key={education.id}

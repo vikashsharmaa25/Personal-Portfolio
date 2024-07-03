@@ -4,7 +4,7 @@ import { FaArrowDownLong } from "react-icons/fa6";
 function Resume() {
   return (
     <>
-      <div className="my-20 flex justify-center items-center">
+      <div className="mt-10 flex justify-center items-center">
         <a
           href="https://drive.google.com/file/d/1soqmJGGusM8MRvy0x2YeBmrUJupojhvI/view"
           target="_blank"

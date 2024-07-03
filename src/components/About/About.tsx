@@ -123,7 +123,7 @@ function About({ scrollToContact }: any) {
             projects.
           </h1>
         </div>
-        <div className="text-center my-20 flex justify-center items-center">
+        <div className="text-center my-10 mb-14 flex justify-center items-center">
           <button
             onClick={scrollToContact}
             className="px-10 py-4 bg-[#FEB901] hover:bg-[#FEB901] hover:text-black duration-200 text-2xl font-semibold rounded-full bg-opacity-5 border border-[#FEB901] yellow flex gap-4 items-center"

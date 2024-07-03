@@ -46,8 +46,8 @@ const socialLinks = [
 
 const Connect: React.FC = () => {
   return (
-    <div className="container mx-auto px-4">
-      <div className="relative text-center py-10">
+    <div className="px-4 mt-10">
+      <div className="relative text-center pt-7">
         <h1 className="text-3xl w-full sm:text-4xl md:text-5xl lg:text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
           Connect with me
         </h1>
@@ -55,7 +55,7 @@ const Connect: React.FC = () => {
           Connect with me
         </h1>
       </div>
-      <div className="lg:flex lg:flex-wrap grid grid-cols-2 items-center justify-center my-10 gap-4">
+      <div className="lg:flex lg:flex-wrap grid grid-cols-2 items-center justify-center gap-4">
         {socialLinks.map((item, index) => (
           <Link
             key={index}

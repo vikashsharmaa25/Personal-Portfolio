@@ -7,7 +7,7 @@ import roleImage from "@/assets/asset 24.svg";
 function Experience() {
   return (
     <>
-      <div className="sm:mb-32 mb-10 sm:mt-10 mt-20">
+      <div className="mt-16">
         <div className="relative text-center">
           <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
             Experience
@@ -17,7 +17,7 @@ function Experience() {
           </h1>
         </div>
 
-        <div className="space-y-6 sm:mt-16 mt-5">
+        <div className="space-y-6 mt-10">
           {experienceData.map((experience: any) => (
             <div
               key={experience.id}
