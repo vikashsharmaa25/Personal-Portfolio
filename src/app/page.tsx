@@ -65,14 +65,14 @@ export default function Home() {
         >
           <PrimaryHeroSection scrollToContact={scrollToContact} />
         </motion.div>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <SecondryHeroSection />
-        </motion.div>
+        </motion.div> */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
