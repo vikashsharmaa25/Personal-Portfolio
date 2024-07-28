@@ -487,7 +487,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
           className="absolute top-0 left-0 w-full h-full -z-10"
         />
         <h1 className="text-white text-5xl md:text-7xl font-extrabold text-center leading-tight">
-          Hi, I'm a <span className="text-yellow-500">{typedText}</span>
+          {`Hi, I'm a`} <span className="text-yellow-500">{typedText}</span>
         </h1>
         <p className="text-gray-400 text-lg md:text-xl mt-4 text-center max-w-2xl">
           I create awesome web applications with modern technologies and a
