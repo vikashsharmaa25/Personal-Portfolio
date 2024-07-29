@@ -49,12 +49,7 @@ function Education() {
             Education
           </h1>
         </motion.div>
-        <motion.div
-          className="md:flex gap-4 mt-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className="md:flex gap-4 mt-8">
           {educationData.map((education: EducationData) => (
             <motion.div
               key={education.id}
@@ -138,7 +133,7 @@ function Education() {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </>
   );
