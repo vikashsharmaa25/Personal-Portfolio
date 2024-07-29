@@ -48,7 +48,7 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: rgb(69, 69, 58) transparent;
-  font-family: "Playwrite AR", cursive;
+  font-family: "Playwrite AR";
   font-optical-sizing: auto;
 }
 
