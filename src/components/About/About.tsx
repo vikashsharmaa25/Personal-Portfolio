@@ -47,7 +47,7 @@ export default function About({ scrollToContact }: any) {
   };
 
   return (
-    <div ref={descriptionRef} className="p-12 mt-8 min-h-[70vh]">
+    <div ref={descriptionRef} className="p-12 mt-8 mb-10">
       <div className="relative text-center">
         <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
           About Me

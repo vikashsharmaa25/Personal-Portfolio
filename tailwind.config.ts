@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        rejouice: ["Rejouice Headline", "sans-serif"],
+        sans: ["Rubik", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -20,4 +20,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

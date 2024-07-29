@@ -24,7 +24,6 @@ function Experience() {
         {experienceData.map((experience, index) => (
           <motion.div
             key={experience.id}
-            whileHover={{ scale: 1.02 }}
             className="bg-white bg-opacity-70 hover:bg-opacity-100 duration-300 shadow p-6 text-black rounded-[40px] relative group"
           >
             <motion.div

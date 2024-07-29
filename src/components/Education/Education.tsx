@@ -58,12 +58,11 @@ function Education() {
           {educationData.map((education: EducationData) => (
             <motion.div
               key={education.id}
-              className="group bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative  md:mt-0 mt-3 hover:bg-white duration-300"
+              className="group bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative  md:mt-0 mt-3  duration-300"
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
             >
               {/* Background circle with transition on hover */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square bg-[#ffc935] rounded-full blur-lg -z-10 group-hover:bg-transparent transition-colors duration-300"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square bg-[#ffc935] rounded-full blur-lg -z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
 
               <motion.div
                 className="flex justify-between items-center mb-4"
@@ -73,14 +72,14 @@ function Education() {
               >
                 <motion.div
                   className="flex items-center space-x-2 bg-black yellow rounded-full sm:px-4 px-2 py-1 sm:text-xl font-bold"
-                  whileHover={{ scale: 1.05 }}
+                  // whileHover={{ scale: 1.05 }}
                 >
                   <MdDateRange className="sm:text-4xl text-xl" />
                   <p className="">{education.date}</p>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-2 sm:text-xl font-semibold bg-white text-gray-800 sm:px-5 px-2 sm:py-2 py-1 rounded-full group-hover:bg-orange-100"
-                  whileHover={{ scale: 1.05 }}
+                  // whileHover={{ scale: 1.05 }}
                 >
                   <FaGraduationCap className="sm:text-3xl" />
                   {education.degree}
