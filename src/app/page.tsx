@@ -11,7 +11,6 @@ import Education from "@/components/Education/Education";
 import Experience from "@/components/Experience/Experience";
 import Footer from "@/components/Footer/Footer";
 import PrimaryHeroSection from "@/components/HeroSection/PrimaryHeroSection";
-import SecondryHeroSection from "@/components/HeroSection/SecondryHeroSection";
 import Navbar from "@/components/Navbar/Navbar";
 import Project from "@/components/PersonalProject/Project";
 import Resume from "@/components/Resume/Resume";
@@ -40,10 +39,74 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const developmentRef = useRef<HTMLDivElement>(null);
+  const resumeRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const discussRef = useRef<HTMLDivElement>(null);
+  const connectRef = useRef<HTMLDivElement>(null);
 
+  // Define the scrollTo functions for each section
   const scrollToContact = () => {
     if (contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToAbout = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToEducation = () => {
+    if (educationRef.current) {
+      educationRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToExperience = () => {
+    if (experienceRef.current) {
+      experienceRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToSkills = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToDevelopment = () => {
+    if (developmentRef.current) {
+      developmentRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToResume = () => {
+    if (resumeRef.current) {
+      resumeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToProject = () => {
+    if (projectRef.current) {
+      projectRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToDiscuss = () => {
+    if (discussRef.current) {
+      discussRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToConnect = () => {
+    if (connectRef.current) {
+      connectRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -55,7 +118,18 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Navbar />
+          <Navbar
+            scrollToContact={scrollToContact}
+            scrollToAbout={scrollToAbout}
+            scrollToEducation={scrollToEducation}
+            scrollToExperience={scrollToExperience}
+            scrollToSkills={scrollToSkills}
+            // scrollToDevelopment={scrollToDevelopment}
+            // scrollToResume={scrollToResume}
+            scrollToProject={scrollToProject}
+            scrollToDiscuss={scrollToDiscuss}
+            scrollToConnect={scrollToConnect}
+          />
         </motion.div>
 
         <motion.div
@@ -65,15 +139,9 @@ export default function Home() {
         >
           <PrimaryHeroSection scrollToContact={scrollToContact} />
         </motion.div>
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <SecondryHeroSection />
-        </motion.div> */}
+
         <motion.div
+          ref={aboutRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -81,7 +149,9 @@ export default function Home() {
         >
           <About scrollToContact={scrollToContact} />
         </motion.div>
+
         <motion.div
+          ref={educationRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -89,7 +159,9 @@ export default function Home() {
         >
           <Education />
         </motion.div>
+
         <motion.div
+          ref={experienceRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -97,7 +169,9 @@ export default function Home() {
         >
           <Experience />
         </motion.div>
+
         <motion.div
+          ref={skillsRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -105,7 +179,9 @@ export default function Home() {
         >
           <Skills />
         </motion.div>
+
         <motion.div
+          ref={developmentRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -113,7 +189,9 @@ export default function Home() {
         >
           <Development />
         </motion.div>
+
         <motion.div
+          ref={resumeRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -121,7 +199,9 @@ export default function Home() {
         >
           <Resume />
         </motion.div>
+
         <motion.div
+          ref={projectRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -129,7 +209,9 @@ export default function Home() {
         >
           <Project />
         </motion.div>
+
         <motion.div
+          ref={discussRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -137,7 +219,9 @@ export default function Home() {
         >
           <Discuss scrollToContact={scrollToContact} />
         </motion.div>
+
         <motion.div
+          ref={connectRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -145,6 +229,7 @@ export default function Home() {
         >
           <Connect />
         </motion.div>
+
         <motion.div
           ref={contactRef}
           initial={{ opacity: 0 }}
@@ -154,6 +239,7 @@ export default function Home() {
         >
           <ContactMe />
         </motion.div>
+
         <Footer />
       </main>
     </SmoothScroll>

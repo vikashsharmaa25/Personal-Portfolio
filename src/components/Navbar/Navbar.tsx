@@ -4,7 +4,31 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdOutlineSegment, MdClose } from "react-icons/md";
 
-function Navbar() {
+type NavbarProps = {
+  scrollToContact: () => void;
+  scrollToAbout: () => void;
+  scrollToEducation: () => void;
+  scrollToExperience: () => void;
+  scrollToSkills: () => void;
+  // scrollToDevelopment: () => void;
+  // scrollToResume: () => void;
+  scrollToProject: () => void;
+  scrollToDiscuss: () => void;
+  scrollToConnect: () => void;
+};
+
+function Navbar({
+  scrollToContact,
+  scrollToAbout,
+  scrollToEducation,
+  scrollToExperience,
+  scrollToSkills,
+  // scrollToDevelopment,
+  // scrollToResume,
+  scrollToProject,
+  scrollToDiscuss,
+  scrollToConnect,
+}: NavbarProps) {
   // State to control the menu's visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -53,7 +77,19 @@ function Navbar() {
   };
 
   // Menu items list
-  const menuItems = ["Home", "About", "Contact", "Resume", "Hire Me"];
+  const menuItems = [
+    { label: "Home", onClick: toggleMenu }, // Home doesn't need a scroll handler
+    { label: "About", onClick: scrollToAbout },
+    { label: "Education", onClick: scrollToEducation },
+    { label: "Experience", onClick: scrollToExperience },
+    { label: "Skills", onClick: scrollToSkills },
+    // { label: "Development", onClick: scrollToDevelopment },
+    // { label: "Resume", onClick: scrollToResume },
+    { label: "Projects", onClick: scrollToProject },
+    { label: "Discuss", onClick: scrollToDiscuss },
+    { label: "Connect", onClick: scrollToConnect },
+    { label: "Contact", onClick: scrollToContact },
+  ];
 
   return (
     <>
@@ -86,7 +122,7 @@ function Navbar() {
             variants={menuVariants}
             initial="hidden"
             animate="visible"
-            exit="exit" // Added exit animation
+            exit="exit"
           >
             <motion.div className="bg-[#1C1C1C] w-[80%] md:w-[60%] max-w-[600px] rounded-lg shadow-lg relative p-8 backdrop-blur-md text-center">
               {/* Close Icon */}
@@ -104,9 +140,12 @@ function Navbar() {
                     key={index}
                     variants={menuItemVariants}
                     className="cursor-pointer hover:text-[#FEB901] transition-colors duration-300"
-                    onClick={toggleMenu}
+                    onClick={() => {
+                      item.onClick();
+                      toggleMenu(); // Close the menu after clicking
+                    }}
                   >
-                    {item}
+                    {item.label}
                   </motion.div>
                 ))}
               </div>
