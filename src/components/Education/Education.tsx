@@ -58,11 +58,13 @@ function Education() {
           {educationData.map((education: EducationData) => (
             <motion.div
               key={education.id}
-              className="bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative group duration-300 md:mt-0 mt-3"
+              className="group bg-[#fff] bg-opacity-75 hover:bg-opacity-100 text-black p-6 rounded-[40px] shadow-lg w-full relative  md:mt-0 mt-3 hover:bg-white duration-300"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
             >
-              <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square bg-[#ffc935] rounded-full blur-lg  -z-10"></motion.div>
+              {/* Background circle with transition on hover */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square bg-[#ffc935] rounded-full blur-lg -z-10 group-hover:bg-transparent transition-colors duration-300"></div>
+
               <motion.div
                 className="flex justify-between items-center mb-4"
                 initial={{ opacity: 0, x: -20 }}
