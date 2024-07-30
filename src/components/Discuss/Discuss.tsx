@@ -112,7 +112,7 @@ function Discuss({ scrollToContact }: any) {
             <div className="mt-10 flex gap-4 items-center">
               {/* Animate the resume button */}
               <motion.a
-                href="https://drive.google.com/file/d/1soqmJGGusM8MRvy0x2YeBmrUJupojhvI/view"
+                href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 sm:py-[16px] py-1 sm:px-8 px-2 yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150"

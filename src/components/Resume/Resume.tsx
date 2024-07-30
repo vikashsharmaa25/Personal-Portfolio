@@ -6,7 +6,7 @@ function Resume() {
     <>
       <div className="mt-10 flex justify-center items-center">
         <a
-          href="https://drive.google.com/file/d/1soqmJGGusM8MRvy0x2YeBmrUJupojhvI/view"
+          href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 py-[16px] px-8 bg-[#FEB901] hover:bg-opacity-5 hover:text-yellow-400 text-black bg-opacity-100 text-2xl rounded-full border border-yellow-400 font-semibold duration-150"

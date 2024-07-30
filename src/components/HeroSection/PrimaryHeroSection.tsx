@@ -500,13 +500,17 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
         />
         <div className="flex gap-4 items-center">
           <motion.button
-            onClick={scrollToContact}
             className="mt-10 px-8 py-3 bg-yellow-600 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 flex items-center tracking-widest"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
-            <span>Resume</span>
+            <a
+              href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
+              target="_blank"
+            >
+              Resume
+            </a>
           </motion.button>
           <motion.button
             onClick={scrollToContact}
