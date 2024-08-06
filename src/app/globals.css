@@ -2,20 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
-
 * {
   scrollbar-width: thin;
   scrollbar-color: rgb(69, 69, 58) transparent;
-  font-family: cursive;
-  font-weight: 400;
   font-optical-sizing: auto;
 }
 
 body {
   background-color: #0c0c0c;
   color: white;
-  font-family: cursive;
   font-weight: 400;
   font-optical-sizing: auto;
   overflow-x: hidden;

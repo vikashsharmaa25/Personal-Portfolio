@@ -1,6 +1,7 @@
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
+import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
 
 export default function About({ scrollToContact }: any) {
   const phrase =
@@ -82,12 +83,16 @@ export default function About({ scrollToContact }: any) {
       </div>
 
       {/* Toggle button */}
-      <div className="text-center mt-4">
+      <div className="mt-4 flex justify-center">
         <button
-          className="px-3 sm:px-4 py-1 sm:py-2 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600 transition"
+          className="px-3 sm:px-4 py-1 sm:py-2 rounded-full flex justify-center items-center  text-white font-bold hover:text-yellow-600 transition"
           onClick={toggleText}
         >
-          {showFullText ? "Read Less" : "Read More"}
+          {showFullText ? (
+            <MdOutlineExpandLess className="text-4xl -mt-5" />
+          ) : (
+            <MdOutlineExpandMore className="text-4xl -mt-5" />
+          )}
         </button>
       </div>
     </div>
