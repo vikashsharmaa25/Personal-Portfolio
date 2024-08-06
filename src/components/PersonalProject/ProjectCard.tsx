@@ -19,16 +19,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectData }) => {
           key={project.id}
           className="rounded-3xl p-6 text-white"
           style={{ background: project.bgColor }}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-          animate={{
-            opacity: isInView ? 1 : 0,
-            x: isInView ? 0 : index % 2 === 0 ? -50 : 50,
-          }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.2,
-            ease: [0.6, 0.05, 0.3, 0.9],
-          }}
           whileHover={{
             scale: 1.05,
             boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.3)",
