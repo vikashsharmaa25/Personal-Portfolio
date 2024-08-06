@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.4",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.2.11",
+    "framer-motion": "^11.3.21",
+    "lucide-react": "^0.424.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
@@ -21,10 +23,12 @@
     "react-tsparticles": "^2.12.2",
     "react-typed": "^2.0.12",
     "sharp": "^0.33.4",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
     "tsparticles": "^3.5.0",
     "tsparticles-engine": "^2.12.0",
     "tsparticles-slim": "^2.12.0",
+    "typewriter-effect": "^2.21.0",
     "use-sound": "^4.0.3"
   },
   "devDependencies": {

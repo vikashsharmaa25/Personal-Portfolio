@@ -10,22 +10,19 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ projectData }) => {
   const projectRef = useRef(null);
-  const isInView = useInView(projectRef, { once: false });
+  const isInView = useInView(projectRef, { once: true });
 
   return (
-    <div
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow- px-2 py-5"
-      ref={projectRef}
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6" ref={projectRef}>
       {projectData.map((project, index) => (
         <motion.div
           key={project.id}
           className="rounded-3xl p-6 text-white"
           style={{ background: project.bgColor }}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 50 }}
+          initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
           animate={{
             opacity: isInView ? 1 : 0,
-            x: isInView ? 0 : index % 2 === 0 ? -100 : 50,
+            x: isInView ? 0 : index % 2 === 0 ? -50 : 50,
           }}
           transition={{
             duration: 0.5,

@@ -1,22 +1,23 @@
-// File: /hooks/useTypingEffect.ts
+"use client";
 
 import { useState, useEffect } from "react";
 
 function useTypingEffect(
   strings: string[],
-  typingSpeed: number,
-  backspaceSpeed: number,
-  loop: boolean
+  typingSpeed: number = 100,
+  backspaceSpeed: number = 50,
+  loop: boolean = true
 ) {
-  const [currentString, setCurrentString] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopIndex, setLoopIndex] = useState(0);
+  const [currentString, setCurrentString] = useState<string>("");
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [loopIndex, setLoopIndex] = useState<number>(0);
 
   useEffect(() => {
     const handleTyping = () => {
       const current = strings[loopIndex % strings.length];
       const isLastCharacter = currentIndex === current.length;
+      const isFirstCharacter = currentIndex === 0;
 
       if (isDeleting) {
         setCurrentString(current.slice(0, currentIndex - 1));
@@ -27,8 +28,8 @@ function useTypingEffect(
       }
 
       if (!isDeleting && isLastCharacter) {
-        setTimeout(() => setIsDeleting(true), 1500); // Pause before deleting
-      } else if (isDeleting && currentIndex === 0) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && isFirstCharacter) {
         setIsDeleting(false);
         setLoopIndex(loopIndex + 1);
       }
