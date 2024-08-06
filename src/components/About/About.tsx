@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
 export default function About({ scrollToContact }: any) {
-  // The phrase to display
   const phrase =
     "A passionate Front End Developer with a Bachelor of Computer Applications and over 1 years experience in crafting captivating digital experiences. My expertise lies in leveraging cutting-edge technologies such as ReactJS, NextJS, Apollo GraphQL, Redux, React Query, and various UI frameworks including Material UI, NextUI, SCSS, Tailwind CSS, Chakra UI, and Bootstrap. I take pride in my ability to design seamless user interfaces and components that align perfectly with the intended aesthetic, creating responsive websites that adapt gracefully to any device. My skill set also extends to proficient API integration, ensuring the seamless flow of data between the front end and back end. In addition, I am known for writing clean, well-structured code that not only functions flawlessly but also enhances the overall maintainability of projects.";
 
@@ -47,7 +46,7 @@ export default function About({ scrollToContact }: any) {
   };
 
   return (
-    <div ref={descriptionRef} className="p-12 mt-8 mb-10">
+    <div ref={descriptionRef} className="p-4 sm:p-12 mt-4 sm:mt-8 mb-10">
       <div className="relative text-center">
         <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
           About Me
@@ -65,12 +64,12 @@ export default function About({ scrollToContact }: any) {
         animate={isInView ? "animate" : "initial"}
       />
 
-      <div className="w-full flex flex-wrap mt-8 justify-center items-center">
+      <div className="w-full flex flex-wrap mt-8 sm:justify-center justify-around items-center">
         {/* Render truncated or full text based on state */}
         {words.slice(0, showFullText ? words.length : 35).map((word, index) => (
-          <div key={index} className="mr-2 mb-2 overflow-hidden">
+          <div key={index} className="mr-1 sm:mr-2 mb-2 overflow-hidden">
             <motion.div
-              className="text-base sm:text-lg md:text-xl font-light text-gray-50 mr-2 mb-2"
+              className="text-lg md:text-[4vmin] font-light text-gray-50 mr-1 sm:mr-2 mb-2"
               variants={slideUp}
               custom={index}
               initial="initial"
@@ -85,7 +84,7 @@ export default function About({ scrollToContact }: any) {
       {/* Toggle button */}
       <div className="text-center mt-4">
         <button
-          className="px-4 py-2 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600 transition"
+          className="px-3 sm:px-4 py-1 sm:py-2 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600 transition"
           onClick={toggleText}
         >
           {showFullText ? "Read Less" : "Read More"}

@@ -36,7 +36,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
 
   return (
     <>
-      <Particles
+      {/* <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -471,7 +471,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             },
           },
         }}
-      />
+      /> */}
 
       <motion.div
         className="relative z-10 w-full min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden"

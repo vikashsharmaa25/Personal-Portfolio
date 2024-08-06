@@ -7,6 +7,7 @@ export interface Project {
   name: string;
   url: string;
   technology: string[];
+  bgColor: string;
 }
 
 const projectData: Project[] = [
@@ -15,14 +16,17 @@ const projectData: Project[] = [
     image: projectOne,
     name: "Search Engine",
     url: "https://googleclonelite.netlify.app",
-    technology: ["React.JS", "Tailwind", "Google api"],
+    technology: ["React.JS", "Tailwind", "Google API"],
+    bgColor: "linear-gradient(135deg, #a772cb 0%, #6aa8f7 100%)",
   },
   {
     id: 2,
     image: tubeMate,
-    name: "Tube mate",
+    name: "Tube Mate",
     url: "https://tubematee.netlify.app",
-    technology: ["React.JS", "Tailwind", "Youtube api"],
+    technology: ["React.JS", "Tailwind", "YouTube API"],
+
+    bgColor: "linear-gradient(135deg, #a772cb 0%, #f76a6a 100%)",
   },
 ];
 

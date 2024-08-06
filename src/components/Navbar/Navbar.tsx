@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MdOutlineSegment, MdClose } from "react-icons/md";
+import { MdClose, MdOutlineSegment } from "react-icons/md";
 
 type NavbarProps = {
   scrollToContact: () => void;
@@ -10,8 +10,6 @@ type NavbarProps = {
   scrollToEducation: () => void;
   scrollToExperience: () => void;
   scrollToSkills: () => void;
-  // scrollToDevelopment: () => void;
-  // scrollToResume: () => void;
   scrollToProject: () => void;
   scrollToDiscuss: () => void;
   scrollToConnect: () => void;
@@ -23,68 +21,22 @@ function Navbar({
   scrollToEducation,
   scrollToExperience,
   scrollToSkills,
-  // scrollToDevelopment,
-  // scrollToResume,
   scrollToProject,
   scrollToDiscuss,
   scrollToConnect,
 }: NavbarProps) {
-  // State to control the menu's visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle the menu open/close
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  // Animation variants for the menu
-  const menuVariants = {
-    hidden: {
-      y: "-100%",
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    exit: {
-      y: "-100%",
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  // Animation variants for each menu item
-  const menuItemVariants = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
-
-  // Menu items list
   const menuItems = [
-    { label: "Home", onClick: toggleMenu }, // Home doesn't need a scroll handler
+    { label: "Home", onClick: toggleMenu },
     { label: "About", onClick: scrollToAbout },
     { label: "Education", onClick: scrollToEducation },
     { label: "Experience", onClick: scrollToExperience },
     { label: "Skills", onClick: scrollToSkills },
-    // { label: "Development", onClick: scrollToDevelopment },
-    // { label: "Resume", onClick: scrollToResume },
     { label: "Projects", onClick: scrollToProject },
     { label: "Discuss", onClick: scrollToDiscuss },
     { label: "Connect", onClick: scrollToConnect },
@@ -118,38 +70,100 @@ function Navbar({
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[#0C0C0C]/30 backdrop-blur-lg z-50"
-            variants={menuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            className="fixed top-0 left-0 w-full h-full bg-black z-50 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
           >
-            <motion.div className="bg-[#1C1C1C] w-[80%] md:w-[60%] max-w-[600px] rounded-lg shadow-lg relative p-8 backdrop-blur-md text-center">
-              {/* Close Icon */}
-              <div
-                className="absolute top-5 right-5 cursor-pointer text-white text-3xl"
-                onClick={toggleMenu}
-              >
-                <MdClose />
-              </div>
+            <motion.div
+              className="fixed top-0 left-0 w-full h-full bg-gray-500 opacity-10 z-40"
+              initial={{ scale: 0, borderRadius: "100%" }}
+              animate={{ scale: 1, borderRadius: "0%" }}
+              transition={{ duration: 0.8, ease: [0.87, 0, 0.13, 1] }}
+            />
 
-              {/* Menu Items */}
-              <div className="flex flex-col justify-center items-center h-full text-white text-3xl font-bold space-y-6">
-                {menuItems.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={menuItemVariants}
-                    className="cursor-pointer hover:text-[#FEB901] transition-colors duration-300"
-                    onClick={() => {
-                      item.onClick();
-                      toggleMenu(); // Close the menu after clicking
-                    }}
-                  >
-                    {item.label}
-                  </motion.div>
-                ))}
+            <div className="relative z-50 container mx-auto px-4 py-8 h-full flex flex-col">
+              <motion.div
+                className="flex justify-end"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={toggleMenu}
+                  className="text-black bg-white rounded-full p-3 shadow-lg"
+                >
+                  <MdClose size={24} />
+                </motion.button>
+              </motion.div>
+
+              <div className="flex-grow flex justify-center items-start p-4 overflow-y-auto">
+                <motion.div
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full max-w-5xl"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+                >
+                  {menuItems.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: 0.5 + index * 0.1,
+                        duration: 0.6,
+                        ease: [0.42, 0, 0.58, 1],
+                      }}
+                    >
+                      <motion.button
+                        onClick={() => {
+                          item.onClick();
+                          toggleMenu();
+                        }}
+                        className="w-full h-32 sm:h-40 bg-white bg-opacity-10 rounded-lg flex flex-col justify-center items-center group hover:bg-opacity-20 transition-all duration-300"
+                        whileHover={{ scale: 1.1, y: -10 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <motion.span
+                          className="text-2xl sm:text-3xl font-bold text-black mb-2 group-hover:text-white transition-colors duration-300"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{
+                            delay: 0.6 + index * 0.1,
+                            duration: 0.3,
+                          }}
+                        >
+                          {item.label}
+                        </motion.span>
+                        <motion.div
+                          className="w-10 h-1 bg-black group-hover:bg-white transition-colors duration-300"
+                          initial={{ width: 0 }}
+                          animate={{ width: 40 }}
+                          transition={{
+                            delay: 0.7 + index * 0.1,
+                            duration: 0.3,
+                          }}
+                        />
+                      </motion.button>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
+
+            <motion.div
+              className="absolute bottom-0 left-0 w-full h-1/4 bg-black"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.8,
+                ease: [0.87, 0, 0.13, 1],
+              }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

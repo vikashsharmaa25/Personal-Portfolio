@@ -79,25 +79,25 @@ function ContactMe() {
           <motion.input
             type="text"
             placeholder="Full Name"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
+            className="outline-none border border-gray-400 rounded-full sm:p-6 p-3 font-semibold text-xl text-gray-600"
             variants={inputVariants}
           />
           <motion.input
             type="text"
             placeholder="Email"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
+            className="outline-none border border-gray-400 rounded-full sm:p-6 p-3 font-semibold text-xl text-gray-600"
             variants={inputVariants}
           />
           <motion.input
             type="text"
             placeholder="Mobile No."
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
+            className="outline-none border border-gray-400 rounded-full sm:p-6 p-3 font-semibold text-xl text-gray-600"
             variants={inputVariants}
           />
           <motion.input
             type="text"
             placeholder="Subject"
-            className="outline-none border border-gray-400 rounded-full p-6 font-semibold text-xl text-gray-600"
+            className="outline-none border border-gray-400 rounded-full sm:p-6 p-3 font-semibold text-xl text-gray-600"
             variants={inputVariants}
           />
         </motion.div>
