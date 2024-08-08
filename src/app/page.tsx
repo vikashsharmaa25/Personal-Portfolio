@@ -125,7 +125,7 @@ const Home: React.FC = () => {
   return (
     <div className="relative text-white">
       {/* Fixed Social Links on the Left */}
-      <div className="fixed bottom-10 right-24 z-50 ">
+      <div className="fixed bottom-10 md:right-24 right-4 z-50 ">
         <WhatsApp />
       </div>
       <div className="fixed bottom-0 left-5 lg:flex hidden flex-col gap-4 justify-center items-center">
