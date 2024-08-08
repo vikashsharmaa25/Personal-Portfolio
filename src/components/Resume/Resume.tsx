@@ -10,7 +10,7 @@ function Resume() {
           href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-8 py-3 bg-transparent border-2 border-pink-500 text-pink-500 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition duration-300"
+          className="px-8 py-3 bg-transparent border-2 border-teal-500 text-teal-500 rounded-full font-semibold hover:bg-teal-500 hover:text-white transition duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -45,7 +45,7 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
   }, [isInView, controls]);
 
   return (
-    <section ref={ref} className="py-20 text-white">
+    <section ref={ref} className="py-20  text-white">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
@@ -68,19 +68,19 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-6 md:mb-8 lg:mb-10 text-gray-300">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-6 md:mb-8 lg:mb-10 text-gray-200">
               {` As a passionate Front End Developer with a Bachelor of Computer
               Applications and over 1 year of experience, I specialize in
               creating captivating digital experiences using cutting-edge
               technologies.`}
             </p>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-10 lg:mb-12 text-gray-300">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-10 lg:mb-12 text-gray-200">
               {` My expertise includes ReactJS, NextJS, Apollo GraphQL, Redux, and
               React Query, complemented by proficiency in UI frameworks such as
               Material UI, NextUI, Tailwind CSS, and Bootstrap.`}
             </p>
             <motion.button
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-purple-500/50 transition duration-300"
+              className="bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-teal-500/50 transition duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
@@ -103,21 +103,19 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
                 key={skill.name}
                 className={`p-6 rounded-xl shadow-xl ${
                   activeSkill === skill.name
-                    ? "bg-gradient-to-br from-purple-600 to-pink-600"
+                    ? "bg-gradient-to-br from-teal-600 to-teal-800"
                     : "bg-gray-800 bg-opacity-50 backdrop-blur-lg"
                 } cursor-pointer transition duration-300`}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 0 25px rgba(168, 85, 247, 0.4)",
+                  boxShadow: "0 0 25px rgba(52, 211, 153, 0.4)",
                 }}
                 onHoverStart={() => setActiveSkill(skill.name)}
                 onHoverEnd={() => setActiveSkill(null)}
               >
                 <div
                   className={`text-3xl md:text-4xl mb-3 md:mb-4 ${
-                    activeSkill === skill.name
-                      ? "text-white"
-                      : "text-purple-400"
+                    activeSkill === skill.name ? "text-white" : "text-teal-400"
                   }`}
                 >
                   {skill.icon}

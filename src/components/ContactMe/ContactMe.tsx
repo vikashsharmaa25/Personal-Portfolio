@@ -152,7 +152,7 @@ function ContactMe() {
         variants={containerVariants}
       >
         {/* Background Decorative Circles */}
-        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+        <div className="absolute top-0 left-0 w-full h-full sm:flex justify-center items-center hidden">
           <div className="w-[800px] h-[800px] bg-gray-900 rounded-full opacity-30 animate-pulse"></div>
         </div>
 
@@ -241,7 +241,7 @@ function ContactMe() {
             >
               <motion.button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-purple-500/50 transition duration-300"
+                className="px-8 py-3 bg-transparent border-2 border-teal-500 text-teal-500 rounded-full font-semibold hover:bg-teal-500 hover:text-white transition duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

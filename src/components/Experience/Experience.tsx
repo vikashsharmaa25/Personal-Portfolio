@@ -49,7 +49,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section ref={experienceRef} className="py-16 sm:py-24">
+    <section ref={experienceRef} className="py-16 sm:py-24 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
@@ -69,7 +69,7 @@ const Experience: React.FC = () => {
           {experienceData?.map((experience: any, index: any) => (
             <motion.div
               key={experience.id}
-              className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-700 hover:border-teal-500 transition-all duration-300 transform hover:scale-105"
               variants={itemVariants}
             >
               <div className="p-6 sm:p-8">
@@ -78,7 +78,7 @@ const Experience: React.FC = () => {
                     <Image
                       src={experience.logo}
                       alt={experience.companyName}
-                      className="w-20 h-20 rounded-full border-4 border-purple-500 shadow-lg"
+                      className="w-20 h-20 rounded-full border-4 border-teal-500 shadow-lg"
                       width={80}
                       height={80}
                     />
@@ -87,24 +87,24 @@ const Experience: React.FC = () => {
                         {experience.companyName}
                       </h3>
                       <p className="text-gray-300 flex items-center text-sm sm:text-base">
-                        <FaMapMarkerAlt className="mr-2 text-purple-400" />
+                        <FaMapMarkerAlt className="mr-2 text-teal-400" />
                         {experience.location}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-full text-sm sm:text-base font-semibold shadow-md">
+                  <div className="flex items-center space-x-2 bg-teal-600 text-white px-4 py-2 rounded-full text-sm sm:text-base font-semibold shadow-md">
                     <MdDateRange className="text-xl sm:text-2xl" />
                     <span>{experience.date}</span>
                   </div>
                 </div>
 
-                <h4 className="text-xl sm:text-2xl font-semibold text-yellow-400 mb-4 flex items-center">
+                <h4 className="text-xl sm:text-2xl font-semibold text-teal-400 mb-4 flex items-center">
                   <MdWork className="mr-2 text-2xl sm:text-3xl" />
                   {experience.role}
                 </h4>
 
                 <motion.button
-                  className="w-full text-left text-purple-400 font-semibold flex items-center justify-between py-2 hover:text-purple-300 transition-colors duration-200"
+                  className="w-full text-left text-teal-400 font-semibold flex items-center justify-between py-2 hover:text-teal-300 transition-colors duration-200"
                   onClick={() =>
                     setExpandedIndex(expandedIndex === index ? null : index)
                   }
@@ -137,7 +137,7 @@ const Experience: React.FC = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 * itemIndex }}
                           >
-                            <span className="text-purple-400 mr-3 text-xl">
+                            <span className="text-teal-400 mr-3 text-xl">
                               •
                             </span>
                             {item}

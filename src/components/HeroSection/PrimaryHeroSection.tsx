@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMail } from "react-icons/hi";
@@ -30,7 +28,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-dark text-light">
+    <div className="relative w-full min-h-screen flex items-center justify-center bg-transparent">
       <div className="container mx-auto sm:px-14 flex flex-col lg:flex-row items-center">
         <motion.div
           className="w-full text-left mb-12 lg:mb-0"
@@ -39,7 +37,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="text-xl  text-teal-300 mb-2"
+            className="text-xl text-teal-300 mb-2"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -47,7 +45,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             {` Hello, my name is`}
           </motion.h1>
           <motion.h1
-            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-2"
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-800 mb-2"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -55,7 +53,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             Vikash Sharma
           </motion.h1>
           <motion.h1
-            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-2"
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-800 pb-3"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -112,8 +110,8 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
 
 const CtaButton = ({ onClick, icon, text }: any) => (
   <motion.button
-    className={`px-6 py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 bg-teal-300 text-dark hover:bg-teal-400`}
-    whileHover={{ scale: 1.05 }}
+    className={`px-6 py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 text-white hover:bg-gradient-to-l hover:from-teal-600 hover:via-teal-500 hover:to-teal-400 hover:scale-110`}
+    whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
   >

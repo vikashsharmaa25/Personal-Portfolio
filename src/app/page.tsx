@@ -58,8 +58,18 @@ const Home: React.FC = () => {
     }
   };
 
+  const emailVariants = {
+    hidden: { opacity: 0, y: 50, rotate: 90 },
+    visible: { opacity: 1, y: 0, rotate: 90 },
+  };
+
+  const lineVariants = {
+    hidden: { scaleY: 0 },
+    visible: { scaleY: 1 },
+  };
+
   return (
-    <div className="relative bg-gray-900 text-white">
+    <div className="relative text-white">
       {/* Fixed Social Links on the Left */}
       <div className="fixed bottom-0 left-5 md:flex hidden flex-col gap-4 justify-center items-center">
         <motion.div
@@ -69,18 +79,36 @@ const Home: React.FC = () => {
         >
           <SocialLinks />
         </motion.div>
-        <div className="h-[150px] w-[2px] bg-white"></div>
+        <motion.div
+          variants={lineVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.6, ease: "easeInOut", delay: 0.4 }}
+          className="h-[150px] w-[1.6px] bg-white"
+        ></motion.div>
       </div>
 
       {/* Email Display on the Right */}
       <div className="fixed bottom-0 -right-20 md:flex hidden flex-col gap-4 justify-center items-center">
-        <h1 className="rotate-90 mb-28 text-xl tracking-widest">
+        <motion.h1
+          variants={emailVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
+          className="rotate-90 mb-28 text-xl tracking-widest"
+        >
           vikash9422@gmail.com
-        </h1>
-        <div className="h-[150px] w-[2px] bg-white"></div>
+        </motion.h1>
+        <motion.div
+          variants={lineVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.6, ease: "easeInOut", delay: 0.4 }}
+          className="h-[150px] w-[2px] bg-white"
+        ></motion.div>
       </div>
 
-      <main className="max-w-[1350px] mx-auto p-4">
+      <main className="max-w-[1350px] mx-auto">
         {/* Navbar with Scroll Functions */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}

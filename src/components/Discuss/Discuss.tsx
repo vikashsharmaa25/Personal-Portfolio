@@ -93,26 +93,26 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
             variants={textVariants}
           >
             <motion.div
-              className="relative mb-10"
+              className="relative mb-10 w-64 h-64 mx-auto md:mx-0"
               whileHover="hover"
               variants={imageHoverVariants}
             >
               <Image
                 src={vikash}
                 alt="Vikash Sharma"
-                width={250}
-                height={250}
-                className="rounded-full border-4 border-[#9354d1] shadow-2xl"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full border-4 border-[#0aa5a4] shadow-2xl"
               />
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0"
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 opacity-0"
                 whileHover={{ opacity: 0.4 }}
                 transition={{ duration: 0.3 }}
               />
             </motion.div>
 
             <motion.h1
-              className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+              className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500"
               variants={textVariants}
             >
               Vikash Sharma
@@ -126,13 +126,13 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
             </motion.h2>
 
             <motion.div
-              className="flex space-x-6 mb-8"
+              className="flex space-x-6 mb-8 justify-center md:justify-start"
               initial="hidden"
               animate="visible"
             >
               <motion.a
                 href="#"
-                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}
               >
@@ -140,7 +140,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               </motion.a>
               <motion.a
                 href="#"
-                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}
               >
@@ -148,7 +148,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               </motion.a>
               <motion.a
                 href="#"
-                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}
               >
@@ -158,11 +158,11 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
           </motion.div>
 
           <motion.div
-            className="bg-[#2c1f44] bg-opacity-60 backdrop-blur-lg rounded-3xl p-10 shadow-2xl"
+            className="bg-[#0a4342] bg-opacity-60 backdrop-blur-lg rounded-3xl sm:p-10 p-3 shadow-2xl"
             variants={textVariants}
           >
             <motion.h3
-              className="text-3xl font-bold mb-6 text-[#b884ff]"
+              className="text-3xl font-bold mb-6 text-[#0aa5a4]"
               variants={textVariants}
             >
               Ready to start a project?
@@ -177,14 +177,14 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               your ideas to life!`}
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               variants={containerVariants}
             >
               <motion.a
                 href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 py-3 px-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#7928ca]/50"
+                className="flex items-center justify-center gap-3 py-3 px-8 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xl rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0a4342]/50"
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -194,7 +194,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
 
               <motion.button
                 onClick={scrollToContact}
-                className="flex items-center justify-center gap-3 py-3 px-8 bg-transparent border-2 border-[#7928ca] text-[#b884ff] text-xl rounded-full font-semibold transition-all duration-300 hover:bg-[#7928ca] hover:text-white hover:shadow-lg hover:shadow-[#7928ca]/50"
+                className="flex items-center justify-center gap-3 py-3 px-8 bg-transparent border-2 border-[#0a4342] text-[#0aa5a4] text-xl rounded-full font-semibold transition-all duration-300 hover:bg-[#0a4342] hover:text-white hover:shadow-lg hover:shadow-[#0a4342]/50"
                 whileHover={{ scale: 1.07 }}
                 whileTap={{ scale: 0.97 }}
               >
