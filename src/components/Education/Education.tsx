@@ -32,7 +32,7 @@ const Education: React.FC = () => {
   };
 
   return (
-    <section ref={educationRef} className="py-12 sm:py-20 overflow-hidden">
+    <section ref={educationRef} className="sm:mt-28 mt-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"

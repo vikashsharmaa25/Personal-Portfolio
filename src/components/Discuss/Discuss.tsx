@@ -69,14 +69,14 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
   return (
     <motion.section
       ref={discussRef}
-      className="py-24 text-white"
+      className="sm:mt-24 mt-16 text-white"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <motion.h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-white leading-tight"
           initial={{ opacity: 0, y: -40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
@@ -158,7 +158,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
           </motion.div>
 
           <motion.div
-            className="bg-[#0a4342] bg-opacity-60 backdrop-blur-lg rounded-3xl sm:p-10 p-3 shadow-2xl"
+            className="bg-[#0a4342] bg-opacity-60 backdrop-blur-lg rounded-3xl sm:p-6 p-3 shadow-2xl sm:-mt-0 -mt-10"
             variants={textVariants}
           >
             <motion.h3

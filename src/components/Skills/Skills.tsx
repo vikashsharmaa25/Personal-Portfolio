@@ -32,10 +32,10 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section ref={skillsRef} className="py-20">
+    <section ref={skillsRef} className="sm:mt-28 mt-16">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-12 text-center text-white"
+          className="text-4xl md:text-5xl font-bold mb-6 text-center text-white"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}

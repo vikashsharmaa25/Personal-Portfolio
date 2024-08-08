@@ -45,7 +45,7 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
   }, [isInView, controls]);
 
   return (
-    <section ref={ref} className="py-20  text-white">
+    <section ref={ref} className="mt-2  text-white">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
