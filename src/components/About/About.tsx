@@ -2,7 +2,13 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
-import { FaCode, FaLaptopCode, FaPalette, FaMobileAlt } from "react-icons/fa";
+import {
+  FaCode,
+  FaLaptopCode,
+  FaPalette,
+  FaMobileAlt,
+  FaClipboardCheck,
+} from "react-icons/fa";
 
 interface AboutProps {
   scrollToContact: () => void;
@@ -22,9 +28,10 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
       description: "Expertise in ReactJS, NextJS, and modern UI frameworks.",
     },
     {
-      name: "UI/UX Design",
-      icon: <FaPalette />,
-      description: "Creating intuitive and visually appealing user interfaces.",
+      name: "Back-end Development",
+      icon: <FaCode />, // You might want to change this icon if needed
+      description:
+        "Proficient in building robust and scalable server-side applications using Node.js, Express, and databases like MongoDB and PostgreSQL.",
     },
     {
       name: "Responsive Design",
@@ -33,7 +40,7 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
     },
     {
       name: "Clean Code",
-      icon: <FaCode />,
+      icon: <FaClipboardCheck />,
       description: "Writing maintainable and efficient code.",
     },
   ];
@@ -45,7 +52,7 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
   }, [isInView, controls]);
 
   return (
-    <section ref={ref} className="mt-2  text-white">
+    <section ref={ref} className="mt-2 text-white">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
@@ -69,15 +76,11 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
             }}
           >
             <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-6 md:mb-8 lg:mb-10 text-gray-200">
-              {` As a passionate Front End Developer with a Bachelor of Computer
-      Applications and over 1 year of experience, I specialize in
-      creating captivating digital experiences using cutting-edge
-      technologies.`}
+              {` As a dedicated Full Stack Developer with a Bachelor of Computer
+      Applications and over 1 year of experience, I excel in crafting comprehensive digital solutions using the latest technologies.`}
             </p>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-10 lg:mb-12 text-gray-200">
-              {` My expertise includes ReactJS, NextJS, Apollo GraphQL, Redux, and
-      React Query, complemented by proficiency in UI frameworks such as
-      Material UI, NextUI, Tailwind CSS, and Bootstrap.`}
+              {` My expertise spans both front-end and back-end technologies, including ReactJS, NextJS, Node.js, Apollo GraphQL, and Redux. I am proficient in UI frameworks such as Material UI, NextUI, Tailwind CSS, and Bootstrap, as well as in developing RESTful APIs and integrating with databases like MongoDB and PostgreSQL.`}
             </p>
             <motion.button
               className="bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-teal-500/50 transition duration-300"
