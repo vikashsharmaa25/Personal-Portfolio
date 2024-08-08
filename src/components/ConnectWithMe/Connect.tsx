@@ -85,17 +85,12 @@ const Connect: React.FC = () => {
       >
         {/* Header Animation */}
         <motion.div
-          className="relative text-center pt-7"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
           initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl w-full sm:text-4xl md:text-5xl lg:text-6xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
-            Connect with me
-          </h1>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold yellow opacity-5 text-outline text-center">
-            Connect with me
-          </h1>
+          Connect with me
         </motion.div>
 
         {/* Social Links Animation */}

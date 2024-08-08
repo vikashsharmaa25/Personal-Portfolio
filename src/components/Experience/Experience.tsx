@@ -1,108 +1,159 @@
-import experienceData from "@/utils/Experience";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
-import React, { useRef } from "react";
-import { MdDateRange } from "react-icons/md";
-import roleImage from "@/assets/asset 24.svg";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  MdDateRange,
+  MdWork,
+  MdExpandMore,
+  MdExpandLess,
+} from "react-icons/md";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import experienceData from "@/utils/Experience";
 
-function Experience() {
-  const experienceRef = useRef(null);
-  const isInView = useInView(experienceRef, { once: false });
+interface ExperienceItem {
+  id: string;
+  companyName: string;
+  logo: string;
+  location: string;
+  date: string;
+  role: string;
+  responsibility: string[];
+}
+
+const Experience: React.FC = () => {
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(experienceRef, { once: false, amount: 0.1 });
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
-    <div className="mt-16" ref={experienceRef}>
-      <div className="relative text-center">
-        <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
-          Experience
-        </h1>
-        <h1 className="sm:text-7xl text-5xl font-extrabold yellow opacity-5 text-outline text-center">
-          Experience
-        </h1>
-      </div>
+    <section ref={experienceRef} className="py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
+          initial={{ opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          Professional Journey
+        </motion.h2>
 
-      <div className="space-y-6 mt-10">
-        {experienceData.map((experience, index) => (
-          <motion.div
-            key={experience.id}
-            className="bg-white bg-opacity-70 hover:bg-opacity-100 duration-300 shadow p-6 text-black rounded-[40px] relative group"
-          >
+        <motion.div
+          className="space-y-8 sm:space-y-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {experienceData?.map((experience: any, index: any) => (
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[16%] aspect-square bg-[#ffc935] rounded-full blur-lg -z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isInView ? 1 : 0 }}
-              transition={{ delay: 0.1 * index }}
-            />
-            <motion.div
-              className="flex items-center justify-between mb-4"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: isInView ? 0 : -20, opacity: isInView ? 1 : 0 }}
-              transition={{ delay: 0.2 + index * 0.1 }}
+              key={experience.id}
+              className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+              variants={itemVariants}
             >
-              <motion.div
-                className="flex items-center space-x-4 bg-black rounded-full pr-10 px-[1px]"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Image
-                  src={experience.logo}
-                  alt={experience.companyName}
-                  className="sm:w-20 sm:h-20 w-12 rounded-full"
-                  width={100}
-                  height={100}
-                />
-                <div>
-                  <h2 className="sm:text-2xl text-xl yellow font-bold">
-                    {experience.companyName}
-                  </h2>
-                  <p className="text-white font-semibold tracking-wider">
-                    {experience.location}
-                  </p>
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
+                  <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+                    <Image
+                      src={experience.logo}
+                      alt={experience.companyName}
+                      className="w-20 h-20 rounded-full border-4 border-purple-500 shadow-lg"
+                      width={80}
+                      height={80}
+                    />
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                        {experience.companyName}
+                      </h3>
+                      <p className="text-gray-300 flex items-center text-sm sm:text-base">
+                        <FaMapMarkerAlt className="mr-2 text-purple-400" />
+                        {experience.location}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-full text-sm sm:text-base font-semibold shadow-md">
+                    <MdDateRange className="text-xl sm:text-2xl" />
+                    <span>{experience.date}</span>
+                  </div>
                 </div>
-              </motion.div>
-              <motion.div
-                className="md:flex hidden items-center gap-4 bg-white rounded-full text-black px-5 py-2 font-extrabold text-xl uppercase group-hover:bg-orange-100"
-                whileHover={{ scale: 1.05 }}
-              >
-                <MdDateRange className="text-3xl" />
-                {experience.date}
-              </motion.div>
-            </motion.div>
-            <motion.h3
-              className="text-3xl my-10 font-bold mb-3 flex items-center gap-6"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: isInView ? 0 : 20, opacity: isInView ? 1 : 0 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
-            >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Image src={roleImage} width={100} height={100} alt="" />
-              </motion.div>
-              {experience.role}
-            </motion.h3>
-            <motion.ul
-              className="list-disc list-inside space-y-2 mt-8 pl-6"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: isInView ? 0 : 20, opacity: isInView ? 1 : 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-            >
-              {experience.responsibility.map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="text-[17px] font-medium tracking-wide"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: isInView ? 0 : -20, opacity: isInView ? 1 : 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
+
+                <h4 className="text-xl sm:text-2xl font-semibold text-yellow-400 mb-4 flex items-center">
+                  <MdWork className="mr-2 text-2xl sm:text-3xl" />
+                  {experience.role}
+                </h4>
+
+                <motion.button
+                  className="w-full text-left text-purple-400 font-semibold flex items-center justify-between py-2 hover:text-purple-300 transition-colors duration-200"
+                  onClick={() =>
+                    setExpandedIndex(expandedIndex === index ? null : index)
+                  }
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {item}
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-        ))}
+                  <span className="text-lg">Responsibilities</span>
+                  {expandedIndex === index ? (
+                    <MdExpandLess size={24} />
+                  ) : (
+                    <MdExpandMore size={24} />
+                  )}
+                </motion.button>
+
+                <AnimatePresence>
+                  {expandedIndex === index && (
+                    <motion.ul
+                      className="mt-4 space-y-3 text-gray-300"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {experience.responsibility.map(
+                        (item: any, itemIndex: any) => (
+                          <motion.li
+                            key={itemIndex}
+                            className="flex items-start text-base sm:text-lg"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * itemIndex }}
+                          >
+                            <span className="text-purple-400 mr-3 text-xl">
+                              •
+                            </span>
+                            {item}
+                          </motion.li>
+                        )
+                      )}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Experience;

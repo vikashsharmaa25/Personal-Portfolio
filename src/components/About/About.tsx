@@ -1,100 +1,146 @@
-import { useInView } from "framer-motion";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
+"use client";
 
-export default function About({ scrollToContact }: any) {
-  const phrase =
-    "A passionate Front End Developer with a Bachelor of Computer Applications and over 1 years experience in crafting captivating digital experiences. My expertise lies in leveraging cutting-edge technologies such as ReactJS, NextJS, Apollo GraphQL, Redux, React Query, and various UI frameworks including Material UI, NextUI, SCSS, Tailwind CSS, Chakra UI, and Bootstrap. I take pride in my ability to design seamless user interfaces and components that align perfectly with the intended aesthetic, creating responsive websites that adapt gracefully to any device. My skill set also extends to proficient API integration, ensuring the seamless flow of data between the front end and back end. In addition, I am known for writing clean, well-structured code that not only functions flawlessly but also enhances the overall maintainability of projects.";
+import React, { useRef, useState } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { FaCode, FaLaptopCode, FaPalette, FaMobileAlt } from "react-icons/fa";
 
-  // Split the phrase into words
-  const words = phrase.split(" ");
+interface AboutProps {
+  scrollToContact: () => void;
+}
 
-  // State to control text truncation
-  const [showFullText, setShowFullText] = useState(false);
+const About: React.FC<AboutProps> = ({ scrollToContact }) => {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
-  // Reference for in-view check
-  const descriptionRef = useRef(null);
-  const isInView = useInView(descriptionRef, { once: false });
+  const [activeSkill, setActiveSkill] = useState<string | null>(null);
 
-  // Animation variants
-  const slideUp = {
-    initial: { y: 100 },
-    animate: (i: any) => ({
-      y: 0,
-      transition: {
-        delay: 0.001 * i,
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    }),
-  };
-
-  const expandWidth = {
-    initial: { width: "0%" },
-    animate: {
-      width: "100%",
-      transition: {
-        duration: 1.3,
-        ease: "easeOut",
-      },
+  const skills = [
+    {
+      name: "Front-end Development",
+      icon: <FaLaptopCode />,
+      description: "Expertise in ReactJS, NextJS, and modern UI frameworks.",
     },
-  };
+    {
+      name: "UI/UX Design",
+      icon: <FaPalette />,
+      description: "Creating intuitive and visually appealing user interfaces.",
+    },
+    {
+      name: "Responsive Design",
+      icon: <FaMobileAlt />,
+      description: "Ensuring seamless experiences across all devices.",
+    },
+    {
+      name: "Clean Code",
+      icon: <FaCode />,
+      description: "Writing maintainable and efficient code.",
+    },
+  ];
 
-  // Function to toggle text display
-  const toggleText = () => {
-    setShowFullText(!showFullText);
-  };
+  React.useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
   return (
-    <div ref={descriptionRef} className="p-4 sm:p-12 mt-4 sm:mt-8 mb-10">
-      <div className="relative text-center">
-        <h1 className="sm:text-6xl text-4xl font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center w-full">
-          About Me
-        </h1>
-
-        <h1 className="sm:text-7xl text-5xl font-extrabold yellow opacity-5 text-outline text-center">
-          About Me
-        </h1>
-      </div>
-
-      <motion.hr
-        className="md:my-2 mt-6"
-        variants={expandWidth}
-        initial="initial"
-        animate={isInView ? "animate" : "initial"}
-      />
-
-      <div className="w-full flex flex-wrap mt-8 sm:justify-center justify-around items-center">
-        {/* Render truncated or full text based on state */}
-        {words.slice(0, showFullText ? words.length : 35).map((word, index) => (
-          <div key={index} className="mr-1 sm:mr-2 mb-2 overflow-hidden">
-            <motion.div
-              className="text-lg md:text-[4vmin] font-light text-gray-50 mr-1 sm:mr-2 mb-2"
-              variants={slideUp}
-              custom={index}
-              initial="initial"
-              animate={isInView ? "animate" : "initial"}
-            >
-              {word}
-            </motion.div>
-          </div>
-        ))}
-      </div>
-
-      {/* Toggle button */}
-      <div className="mt-4 flex justify-center">
-        <button
-          className="px-3 sm:px-4 py-1 sm:py-2 rounded-full flex justify-center items-center  text-white font-bold hover:text-yellow-600 transition"
-          onClick={toggleText}
+    <section ref={ref} className="py-20 text-white">
+      <div className="container mx-auto px-4">
+        <motion.h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
+          initial={{ opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+          }}
         >
-          {showFullText ? (
-            <MdOutlineExpandLess className="text-4xl -mt-5" />
-          ) : (
-            <MdOutlineExpandMore className="text-4xl -mt-5" />
-          )}
-        </button>
+          About Me
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={controls}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            variants={{
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-6 md:mb-8 lg:mb-10 text-gray-300">
+              As a passionate Front End Developer with a Bachelor of Computer
+              Applications and over 1 year of experience, I specialize in
+              creating captivating digital experiences using cutting-edge
+              technologies.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-10 lg:mb-12 text-gray-300">
+              My expertise includes ReactJS, NextJS, Apollo GraphQL, Redux, and
+              React Query, complemented by proficiency in UI frameworks such as
+              Material UI, NextUI, Tailwind CSS, and Bootstrap.
+            </p>
+            <motion.button
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-purple-500/50 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
+            >
+              Let's Connect
+            </motion.button>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8"
+            initial={{ opacity: 0, y: 50 }}
+            animate={controls}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {skills.map((skill) => (
+              <motion.div
+                key={skill.name}
+                className={`p-6 rounded-xl shadow-xl ${
+                  activeSkill === skill.name
+                    ? "bg-gradient-to-br from-purple-600 to-pink-600"
+                    : "bg-gray-800 bg-opacity-50 backdrop-blur-lg"
+                } cursor-pointer transition duration-300`}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 25px rgba(168, 85, 247, 0.4)",
+                }}
+                onHoverStart={() => setActiveSkill(skill.name)}
+                onHoverEnd={() => setActiveSkill(null)}
+              >
+                <div
+                  className={`text-3xl md:text-4xl mb-3 md:mb-4 ${
+                    activeSkill === skill.name
+                      ? "text-white"
+                      : "text-purple-400"
+                  }`}
+                >
+                  {skill.icon}
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">
+                  {skill.name}
+                </h3>
+                <p
+                  className={`text-xs md:text-sm ${
+                    activeSkill === skill.name
+                      ? "text-gray-200"
+                      : "text-gray-400"
+                  }`}
+                >
+                  {skill.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default About;

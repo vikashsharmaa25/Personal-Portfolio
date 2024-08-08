@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useCallback } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { GoArrowDown } from "react-icons/go";
-import useTypingEffect from "@/components/useTypingEffect/useTypingEffect";
-import swag from "@/assets/hero-hand.c9d1e315.svg";
-import background from "@/assets/bg-vector.svg";
-import type { Container, Engine } from "tsparticles-engine";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineMail } from "react-icons/hi";
+
+// Role options that will be displayed
+const roles = [
+  "Front End Developer",
+  "Back End Developer",
+  "Full Stack Developer",
+  "Web Designer",
+];
 
 interface PrimaryHeroSectionProps {
   scrollToContact: () => void;
@@ -18,74 +19,109 @@ interface PrimaryHeroSectionProps {
 const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
   scrollToContact,
 }) => {
-  const typedText = useTypingEffect(
-    [
-      "Front End Developer",
-      "Back End Developer",
-      "Full Stack Developer",
-      "Web Designer",
-    ],
-    100,
-    50,
-    true
-  );
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <>
-      <motion.div
-        className="relative z-10 w-full lg:min-h-screen h-auto lg:py-0 py-20 flex flex-col justify-center items-center px-4 overflow-hidden"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <Image
-          src={background}
-          alt="Background Image"
-          layout="fill"
-          objectFit="contain"
-          className="absolute top-0 left-0 w-full h-full -z-10"
-        />
-        <h1 className="text-white text-5xl md:text-7xl font-bold text-center leading-tight">
-          {`Hi, I'm a`}{" "}
-          <span className="text-yellow-500 font-bold">{typedText}</span>
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl mt-4 text-center max-w-2xl">
-          I create awesome web applications with modern technologies and a
-          passion for design.
-        </p>
-        <Image
-          src={swag}
-          alt="Swag"
-          className="w-24 md:w-32 mt-8 animate-bounce"
-        />
-        <div className="flex gap-4 items-center">
-          <motion.button
-            className="flex items-center gap-2 sm:py-[13px] py-1 sm:px-8 px-4 yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 duration-150 mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-dark text-light">
+      <div className="container mx-auto sm:px-14 flex flex-col lg:flex-row items-center">
+        <motion.div
+          className="w-full text-left mb-12 lg:mb-0"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h1
+            className="text-xl  text-teal-300 mb-2"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <a
-              href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
-              target="_blank"
+            {` Hello, my name is`}
+          </motion.h1>
+          <motion.h1
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-2"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Vikash Sharma
+          </motion.h1>
+          <motion.h1
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-2"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            {`I love exploring new things!`}
+          </motion.h1>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentRoleIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="h-12 sm:h-16"
             >
-              Resume
-            </a>
-          </motion.button>
-          <motion.button
-            onClick={scrollToContact}
-            className="flex items-center gap-2 sm:py-[13px] py-1 sm:px-8 px-4 yellow bg-[#FEB901] bg-opacity-100  sm:text-2xl rounded-full border border-yellow-400 duration-150 mt-10 text-black"
+              <motion.h2
+                className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-200"
+                initial={{ clipPath: "inset(0 0 100% 0)" }}
+                animate={{ clipPath: "inset(0 0 0 0)" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                {roles[currentRoleIndex]}
+              </motion.h2>
+            </motion.div>
+          </AnimatePresence>
+
+          <motion.p
+            className="mt-4 text-base sm:text-lg text-gray-400 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <span className="text-black">Hire Me</span>
-            <GoArrowDown className="ml-2 animate-bounce text-black" />
-          </motion.button>
-        </div>
-      </motion.div>
-    </>
+            {` I've completed my BCA graduation in 2023 and have one year of experience as a full-stack developer. I have a strong interest in full-stack development and enjoy learning new skills and implementing them in real-life projects!`}
+          </motion.p>
+
+          <motion.div
+            className="mt-8 flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <CtaButton
+              onClick={scrollToContact}
+              icon={<HiOutlineMail />}
+              text="Get in Touch"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
   );
 };
+
+const CtaButton = ({ onClick, icon, text }: any) => (
+  <motion.button
+    className={`px-6 py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 bg-teal-300 text-dark hover:bg-teal-400`}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={onClick}
+  >
+    <span className="flex items-center justify-center">
+      {icon}
+      <span className="ml-2">{text}</span>
+    </span>
+  </motion.button>
+);
 
 export default PrimaryHeroSection;

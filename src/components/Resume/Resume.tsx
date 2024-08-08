@@ -1,19 +1,24 @@
+import { motion } from "framer-motion";
 import React from "react";
-import { FaArrowDownLong } from "react-icons/fa6";
+import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 function Resume() {
   return (
     <>
       <div className="mt-10 flex justify-center items-center">
-        <a
+        <motion.a
           href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 py-[16px] px-8 bg-[#FEB901] hover:bg-opacity-5 hover:text-yellow-400 text-black bg-opacity-100 text-2xl rounded-full border border-yellow-400 font-semibold duration-150"
+          className="px-8 py-3 bg-transparent border-2 border-pink-500 text-pink-500 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <FaArrowDownLong />
-          Resume
-        </a>
+          <span className="flex items-center">
+            <HiOutlineDocumentDownload className="mr-2" />
+            Resume
+          </span>
+        </motion.a>
       </div>
     </>
   );

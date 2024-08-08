@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import projectData from "@/utils/Project";
 import ProjectCard from "./ProjectCard";
+import { motion, useInView } from "framer-motion";
 
 const Project: React.FC = () => {
+  const developmentRef = useRef(null);
+  const isInView = useInView(developmentRef, { once: false });
   return (
-    <div className="mt-14">
-      <div className="relative text-center mb-10">
-        <h1 className="sm:text-6xl text-4xl font-extrabold text-yellow-500 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow">
-          Projects
-        </h1>
-        <h1 className="sm:text-7xl text-5xl font-extrabold text-yellow-500 opacity-5 text-outline">
-          Projects
-        </h1>
-      </div>
+    <div className="mt-14" ref={developmentRef}>
+      <motion.h2
+        className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
+        initial={{ opacity: 0, y: -20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        Project
+      </motion.h2>
       <div className="container mx-auto px-4">
         <ProjectCard projectData={projectData} />
       </div>

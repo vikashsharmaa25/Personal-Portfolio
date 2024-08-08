@@ -35,7 +35,7 @@ function Footer() {
     <>
       <motion.div
         ref={footerRef}
-        className="sm:mt-20 mb-4 mt-10 bg-[#FEB901] w-full sm:rounded-full rounded-3xl flex sm:flex-row flex-col justify-between items-center"
+        className="sm:mt-20 mb-4 mt-10 w-full sm:rounded-full rounded-3xl flex sm:flex-row flex-col justify-between items-center bg-gradient-to-br from-[#111827] to-[#000000]"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={footerVariants}
@@ -52,14 +52,14 @@ function Footer() {
             VS
           </motion.h1>
           <motion.h1
-            className="sm:text-2xl text-xl text-black tracking-tighter"
+            className="sm:text-2xl text-xl text-white tracking-tighter"
             whileHover={{ scale: 1.05 }}
           >
             Vikash <span className="font-bold">Sharma</span>
           </motion.h1>
         </motion.div>
         <motion.div
-          className="text-black sm:pr-8 sm:text-xl text-base"
+          className="text-white sm:pr-8 sm:text-xl text-base"
           whileHover={{ scale: 1.05 }}
         >
           Designed & Built by{" "}

@@ -3,153 +3,209 @@ import React, { useRef } from "react";
 import vikash from "@/assets/vikash.jpeg";
 import { GoArrowDown } from "react-icons/go";
 import { IoIosChatbubbles } from "react-icons/io";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
-function Discuss({ scrollToContact }: any) {
+function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
   const discussRef = useRef(null);
-  const isInView = useInView(discussRef, { once: false });
+  const isInView = useInView(discussRef, { once: false, amount: 0.1 });
 
-  // Animation variants for the main section
+  // Container Variants
   const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.5,
-        delayChildren: 0.2,
-        staggerChildren: 0.1,
+        staggerChildren: 0.3,
+        when: "beforeChildren",
+        delayChildren: 0.1,
       },
     },
   };
 
-  // Animation variants for each item (image, text, buttons)
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+  // Text & Image Animation Variants
+  const textVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
       opacity: 1,
+      y: 0,
       scale: 1,
       transition: {
         type: "spring",
         damping: 15,
-        stiffness: 100,
+        stiffness: 120,
+      },
+    },
+  };
+
+  // Image Hover Variants
+  const imageHoverVariants = {
+    hover: {
+      scale: 1.1,
+      rotate: 2,
+      boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 10,
+      },
+    },
+  };
+
+  // Social Icons Hover Variants
+  const socialIconVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 12,
       },
     },
   };
 
   return (
-    <div ref={discussRef} className="mt-24">
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        <motion.div
-          className="relative text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+    <motion.section
+      ref={discussRef}
+      className="py-24 text-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="container mx-auto px-6 lg:px-12">
+        <motion.h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
+          initial={{ opacity: 0, y: -40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
         >
-          <h1 className="sm:text-6xl text-3xl w-full font-extrabold yellow absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-shadow text-center">
-            Discuss Projects
-          </h1>
-          <h1 className="sm:text-7xl text-4xl font-extrabold yellow opacity-5 text-outline text-center">
-            Discuss Projects
-          </h1>
-        </motion.div>
+          Let's Collaborate
+        </motion.h2>
 
         <motion.div
-          className="bg-[#181818] flex justify-center items-center rounded-[40px] sm:p-16 p-6 mt-6"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
+          className="grid md:grid-cols-2 gap-12 items-center"
+          variants={containerVariants}
         >
           <motion.div
-            className="flex flex-col items-center"
-            variants={itemVariants}
+            className="flex flex-col items-center md:items-start text-center md:text-left"
+            variants={textVariants}
           >
-            {/* Animate the image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.4 }
-              }
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100,
-              }}
+              className="relative mb-10"
+              whileHover="hover"
+              variants={imageHoverVariants}
             >
               <Image
                 src={vikash}
-                alt=""
-                width={100}
-                height={100}
-                className="w-36 rounded-full h-36 border border-yellow-400 p-2"
+                alt="Vikash Sharma"
+                width={250}
+                height={250}
+                className="rounded-full border-4 border-[#9354d1] shadow-2xl"
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0"
+                whileHover={{ opacity: 0.4 }}
+                transition={{ duration: 0.3 }}
               />
             </motion.div>
 
-            {/* Animate the main heading */}
             <motion.h1
-              className="yellow font-extrabold my-6 sm:text-5xl text-4xl text-center w-full"
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500"
+              variants={textVariants}
             >
               Vikash Sharma
             </motion.h1>
 
-            {/* Animate the subheading */}
-            <motion.h1
-              className="sm:text-3xl text-[19px] font-light text-center"
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+            <motion.h2
+              className="text-2xl sm:text-3xl font-light text-[#dcdce7] mb-8"
+              variants={textVariants}
             >
               Front End Developer / Web Designer
-            </motion.h1>
+            </motion.h2>
 
-            <div className="mt-10 flex gap-4 items-center">
-              {/* Animate the resume button */}
+            <motion.div
+              className="flex space-x-6 mb-8"
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.a
+                href="#"
+                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                whileHover={{ scale: 1.25 }}
+                variants={socialIconVariants}
+              >
+                <FaLinkedin size={28} />
+              </motion.a>
+              <motion.a
+                href="#"
+                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                whileHover={{ scale: 1.25 }}
+                variants={socialIconVariants}
+              >
+                <FaGithub size={28} />
+              </motion.a>
+              <motion.a
+                href="#"
+                className="text-[#b884ff] hover:text-[#ff0080] transition-colors duration-300"
+                whileHover={{ scale: 1.25 }}
+                variants={socialIconVariants}
+              >
+                <FaTwitter size={28} />
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="bg-[#2c1f44] bg-opacity-60 backdrop-blur-lg rounded-3xl p-10 shadow-2xl"
+            variants={textVariants}
+          >
+            <motion.h3
+              className="text-3xl font-bold mb-6 text-[#b884ff]"
+              variants={textVariants}
+            >
+              Ready to start a project?
+            </motion.h3>
+            <motion.p
+              className="text-[#e0d8ee] mb-8 text-lg"
+              variants={textVariants}
+            >
+              I'm always excited to take on new challenges and create amazing
+              digital experiences. Whether you have a specific project in mind
+              or just want to explore possibilities, let's connect and bring
+              your ideas to life!
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              variants={containerVariants}
+            >
               <motion.a
                 href="https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 sm:py-[16px] py-1 sm:px-8 px-2 yellow bg-[#FEB901] hover:bg-opacity-100 hover:text-black bg-opacity-5 sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
-                }
-                transition={{ duration: 0.5, delay: 0.9 }}
+                className="flex items-center justify-center gap-3 py-3 px-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#7928ca]/50"
+                whileHover={{ scale: 1.07 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <span>
-                  <GoArrowDown />
-                </span>
+                <GoArrowDown className="text-2xl" />
                 Resume
               </motion.a>
 
-              {/* Animate the discuss project button */}
               <motion.button
                 onClick={scrollToContact}
-                className="sm:py-[16px] py-1 sm:px-8 px-2 bg-[#FEB901] hover:bg-opacity-5 hover:text-[#FEB901] text-black sm:text-2xl rounded-full border border-yellow-400 font-semibold duration-150 flex gap-4 items-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
-                }
-                transition={{ duration: 0.5, delay: 0.9 }}
+                className="flex items-center justify-center gap-3 py-3 px-8 bg-transparent border-2 border-[#7928ca] text-[#b884ff] text-xl rounded-full font-semibold transition-all duration-300 hover:bg-[#7928ca] hover:text-white hover:shadow-lg hover:shadow-[#7928ca]/50"
+                whileHover={{ scale: 1.07 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <IoIosChatbubbles className="sm:text-3xl" />
+                <IoIosChatbubbles className="text-2xl" />
                 Discuss Project
               </motion.button>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.section>
   );
 }
 
