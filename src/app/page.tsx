@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import About from "@/components/About/About";
 import Connect from "@/components/ConnectWithMe/Connect";
@@ -16,6 +16,7 @@ import Project from "@/components/PersonalProject/Project";
 import Resume from "@/components/Resume/Resume";
 import Skills from "@/components/Skills/Skills";
 import SocialLinks from "@/components/socialLinks/socialLinks";
+import WhatsApp from "@/components/Whatsapp/WhatsApp";
 
 const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -38,7 +39,48 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
+const Loading: React.FC = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-900">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 2 }}
+        className="text-4xl sacramento-regular text-white"
+      >
+        {Array.from("thevikashsharma").map((char, index) => (
+          <motion.span
+            key={index}
+            variants={itemVariants}
+            className="inline-block"
+          >
+            {char}
+          </motion.span>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   // Using `useRef` to store references to each section
   const contactRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -68,10 +110,25 @@ const Home: React.FC = () => {
     visible: { scaleY: 1 },
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="relative text-white">
       {/* Fixed Social Links on the Left */}
-      <div className="fixed bottom-0 left-5 md:flex hidden flex-col gap-4 justify-center items-center">
+      <div className="fixed bottom-10 right-24 z-50 ">
+        <WhatsApp />
+      </div>
+      <div className="fixed bottom-0 left-5 lg:flex hidden flex-col gap-4 justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,13 +146,13 @@ const Home: React.FC = () => {
       </div>
 
       {/* Email Display on the Right */}
-      <div className="fixed bottom-0 -right-20 md:flex hidden flex-col gap-4 justify-center items-center">
+      <div className="fixed bottom-0 -right-20 lg:flex hidden flex-col gap-4 justify-center items-center">
         <motion.h1
           variants={emailVariants}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
-          className="rotate-90 mb-28 text-xl tracking-widest"
+          className="rotate-90 mb-28 text-xl tracking-widest text-teal-200"
         >
           vikash9422@gmail.com
         </motion.h1>

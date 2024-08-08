@@ -61,7 +61,7 @@ const Experience: React.FC = () => {
         </motion.h2>
 
         <motion.div
-          className="space-y-8 sm:space-y-12"
+          className="sm:space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}

@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const socialLinks = [
-  { icon: FaGithub, href: "https://github.com/yourusername" },
-  { icon: FaLinkedin, href: "https://linkedin.com/in/yourusername" },
-  { icon: FaInstagram, href: "https://instagram.com/yourusername" },
-  { icon: FaTwitter, href: "https://twitter.com/yourusername" },
+  { icon: FaGithub, href: "https://github.com/vikashsharmaa25" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/vikashsharmaa25/" },
+  { icon: FaInstagram, href: "https://www.instagram.com/vikashsharmaa25" },
+  {
+    icon: FaTwitter,
+    href: "https://x.com/VikashShar25127?t=cszD1ACDhY9z_eLcGm9gAQ&s=09",
+  },
 ];
 
 const SocialLinks: React.FC = () => {

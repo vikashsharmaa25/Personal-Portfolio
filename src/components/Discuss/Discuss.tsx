@@ -122,7 +122,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               className="text-2xl sm:text-3xl font-light text-[#dcdce7] mb-8"
               variants={textVariants}
             >
-              Front End Developer / Web Designer
+              Full Stack Developer
             </motion.h2>
 
             <motion.div
@@ -131,7 +131,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               animate="visible"
             >
               <motion.a
-                href="#"
+                href="https://www.linkedin.com/in/vikashsharmaa25/"
                 className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}
@@ -139,7 +139,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
                 <FaLinkedin size={28} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://github.com/vikashsharmaa25"
                 className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}
@@ -147,7 +147,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
                 <FaGithub size={28} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://x.com/VikashShar25127?t=cszD1ACDhY9z_eLcGm9gAQ&s=09"
                 className="text-[#0aa5a4] hover:text-[#00d1d1] transition-colors duration-300"
                 whileHover={{ scale: 1.25 }}
                 variants={socialIconVariants}

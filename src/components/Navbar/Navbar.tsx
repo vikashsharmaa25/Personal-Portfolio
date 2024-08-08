@@ -1,10 +1,16 @@
-"use client";
-
+// components/Navbar.tsx
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-type NavbarProps = {
+interface NavItem {
+  label: string;
+  onClick: () => void;
+}
+
+interface NavbarProps {
   scrollToContact: () => void;
   scrollToAbout: () => void;
   scrollToEducation: () => void;
@@ -13,7 +19,7 @@ type NavbarProps = {
   scrollToProject: () => void;
   scrollToDiscuss: () => void;
   scrollToConnect: () => void;
-};
+}
 
 const Navbar: React.FC<NavbarProps> = ({
   scrollToContact,
@@ -27,6 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -39,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
+  const menuItems: NavItem[] = [
     { label: "About", onClick: scrollToAbout },
     { label: "Education", onClick: scrollToEducation },
     { label: "Experience", onClick: scrollToExperience },
@@ -53,26 +60,31 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-black bg-opacity-80 backdrop-blur-md"
+            ? "backdrop-filter backdrop-blur-md bg-gradient-to-b from-[#111827]/50 to-transparent"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <motion.div
-            className="text-white text-2xl font-bold"
-            whileHover={{ scale: 1.05 }}
-          >
-            VS
-          </motion.div>
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/">
+            <motion.div
+              className="text-white text-4xl sacramento-regular cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              thevikashsharma
+            </motion.div>
+          </Link>
           <motion.button
             className="text-white text-2xl focus:outline-none"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             onClick={toggleMenu}
           >
             {isMenuOpen ? <FiX /> : <FiMenu />}
@@ -83,35 +95,40 @@ const Navbar: React.FC<NavbarProps> = ({
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-40 flex items-center justify-center"
+            className="fixed inset-0 bg-gradient-to-br from-black to-gray-900 z-40 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.4 }}
             >
               {menuItems.map((item, index) => (
                 <motion.button
                   key={item.label}
-                  className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white rounded-lg p-4 flex flex-col items-center justify-center transition-all duration-300"
+                  className="bg-white bg-opacity-5 hover:bg-opacity-10 text-white rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
                   onClick={() => {
                     item.onClick();
                     toggleMenu();
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    delay: index * 0.05,
+                  }}
                 >
-                  <span className="text-lg font-semibold">{item.label}</span>
+                  <span className="text-xl font-semibold">{item.label}</span>
                 </motion.button>
               ))}
             </motion.div>

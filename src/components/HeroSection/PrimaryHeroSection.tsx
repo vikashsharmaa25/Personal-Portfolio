@@ -28,8 +28,8 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center bg-transparent">
-      <div className="container mx-auto sm:px-14 flex flex-col lg:flex-row items-center">
+    <div className="relative w-full min-h-screen flex items-center justify-center">
+      <div className="container mx-auto sm:px-14 flex flex-col lg:flex-row items-center justify-center sm:mt-0 mt-14">
         <motion.div
           className="w-full text-left mb-12 lg:mb-0"
           initial={{ opacity: 0, y: 50 }}
@@ -42,7 +42,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {` Hello, my name is`}
+            {`Hello, my name is`}
           </motion.h1>
           <motion.h1
             className="text-3xl sm:text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-800 mb-2"
