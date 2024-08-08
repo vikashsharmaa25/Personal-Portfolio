@@ -81,7 +81,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          Let's Collaborate
+          {`Let's Collaborate`}
         </motion.h2>
 
         <motion.div
@@ -171,10 +171,10 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               className="text-[#e0d8ee] mb-8 text-lg"
               variants={textVariants}
             >
-              I'm always excited to take on new challenges and create amazing
+              {` I'm always excited to take on new challenges and create amazing
               digital experiences. Whether you have a specific project in mind
               or just want to explore possibilities, let's connect and bring
-              your ideas to life!
+              your ideas to life!`}
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4"

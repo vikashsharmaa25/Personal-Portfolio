@@ -168,7 +168,7 @@ function ContactMe() {
               Contact Me
             </h1>
             <span className="text-xl text-gray-400 mt-2 block opacity-80">
-              I'm here to help! Please fill out the form to get in touch.
+              {`I'm here to help! Please fill out the form to get in touch.`}
             </span>
           </motion.div>
 

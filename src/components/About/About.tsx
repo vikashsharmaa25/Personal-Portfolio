@@ -69,15 +69,15 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
             }}
           >
             <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-6 md:mb-8 lg:mb-10 text-gray-300">
-              As a passionate Front End Developer with a Bachelor of Computer
+              {` As a passionate Front End Developer with a Bachelor of Computer
               Applications and over 1 year of experience, I specialize in
               creating captivating digital experiences using cutting-edge
-              technologies.
+              technologies.`}
             </p>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-10 lg:mb-12 text-gray-300">
-              My expertise includes ReactJS, NextJS, Apollo GraphQL, Redux, and
+              {` My expertise includes ReactJS, NextJS, Apollo GraphQL, Redux, and
               React Query, complemented by proficiency in UI frameworks such as
-              Material UI, NextUI, Tailwind CSS, and Bootstrap.
+              Material UI, NextUI, Tailwind CSS, and Bootstrap.`}
             </p>
             <motion.button
               className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-lg shadow-lg hover:shadow-purple-500/50 transition duration-300"
@@ -85,7 +85,7 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
             >
-              Let's Connect
+              {` Let's Connect`}
             </motion.button>
           </motion.div>
 
