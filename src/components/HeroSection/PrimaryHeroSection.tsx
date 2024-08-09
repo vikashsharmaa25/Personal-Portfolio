@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiOutlineMail } from "react-icons/hi";
+import { HiOutlineDocumentText, HiOutlineMail } from "react-icons/hi";
+import { useRouter } from "next/navigation";
 
 // Role options that will be displayed
 const roles = [
@@ -18,6 +19,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
   scrollToContact,
 }) => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const route = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,6 +28,13 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
 
     return () => clearInterval(interval);
   }, []);
+
+  const viewResume = () => {
+    window.open(
+      "https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view",
+      "_blank"
+    );
+  };
 
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center">
@@ -96,10 +105,15 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            <CtaButton
+            {/* <CtaButton
               onClick={scrollToContact}
               icon={<HiOutlineMail />}
               text="Get in Touch"
+            /> */}
+            <CtaButton
+              onClick={viewResume}
+              icon={<HiOutlineDocumentText />}
+              text="View Resume"
             />
           </motion.div>
         </motion.div>
