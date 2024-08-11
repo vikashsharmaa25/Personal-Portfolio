@@ -96,7 +96,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            {` I've completed my BCA graduation in 2023 and have one year of experience as a full-stack developer. I have a strong interest in full-stack development and enjoy learning new skills and implementing them in real-life projects!`}
+            {`I've completed my BCA graduation in 2023 and have one year of experience as a full-stack developer. I have a strong interest in full-stack development and enjoy learning new skills and implementing them in real-life projects!`}
           </motion.p>
 
           <motion.div
