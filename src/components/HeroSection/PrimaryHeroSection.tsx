@@ -31,7 +31,7 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
 
   const viewResume = () => {
     window.open(
-      "https://drive.google.com/file/d/1dlpX9TciORZvTcssroM1aNf6sjavZMoZ/view",
+      "https://drive.google.com/file/d/1l8kbQIquCB-hO61863j04r-S-_4oRKiw/view?usp=sharing",
       "_blank"
     );
   };
