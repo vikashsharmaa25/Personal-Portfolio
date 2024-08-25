@@ -31,7 +31,7 @@ const experienceData: Experience[] = [
     companyName: "QuadB Technology",
     location: "Ludhiana, India",
     date: "Aug-2023 - Jan-2024",
-    role: "Front End Developer - Inter",
+    role: "Front End Developer - Intern",
     technology: "React.js",
     responsibility: [
       "Created responsive with React.js, Tailwind CSS, and Ant Design, improving mobile user experience by 40%.",
