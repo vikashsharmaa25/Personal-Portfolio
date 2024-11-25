@@ -7,7 +7,7 @@ function Resume() {
     <>
       <div className="mt-10 flex justify-center items-center">
         <motion.a
-          href="https://drive.google.com/file/d/1l8kbQIquCB-hO61863j04r-S-_4oRKiw/view?usp=sharing"
+          href="https://drive.google.com/file/d/1tYfmQPJBlbVGZBfnEVxrwOeH_uy43g-X/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 bg-transparent border-2 border-teal-500 text-teal-500 rounded-full font-semibold hover:bg-teal-500 hover:text-white transition duration-300"

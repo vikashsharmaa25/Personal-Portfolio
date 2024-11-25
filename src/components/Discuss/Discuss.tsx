@@ -181,7 +181,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               variants={containerVariants}
             >
               <motion.a
-                href="https://drive.google.com/file/d/1l8kbQIquCB-hO61863j04r-S-_4oRKiw/view?usp=sharing"
+                href="https://drive.google.com/file/d/1tYfmQPJBlbVGZBfnEVxrwOeH_uy43g-X/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 py-3 px-8 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xl rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#0a4342]/50"
