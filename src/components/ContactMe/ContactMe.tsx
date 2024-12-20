@@ -166,6 +166,11 @@ function ContactMe() {
           >
             <h1 className="sm:text-6xl text-3xl font-extrabold text-white relative z-20">
               Contact Me
+              <motion.div
+                className="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full mt-1"
+                whileInView={{ scaleX: [0, 1] }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              />
             </h1>
             <span className="text-xl text-gray-400 mt-2 block opacity-80">
               {`I'm here to help! Please fill out the form to get in touch.`}

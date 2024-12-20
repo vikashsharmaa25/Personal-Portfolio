@@ -91,6 +91,11 @@ const Connect: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           Connect with me
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full mt-1"
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
         </motion.div>
 
         {/* Social Links Animation */}

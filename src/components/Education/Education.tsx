@@ -1,117 +1,222 @@
-import React, { useRef } from "react";
-import educationData, { EducationData } from "@/utils/Education";
-import { MdDateRange } from "react-icons/md";
-import { FaGraduationCap, FaLocationArrow } from "react-icons/fa";
-import { RiSchoolFill } from "react-icons/ri";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import { Calendar, GraduationCap, MapPin, School } from "lucide-react";
 
-const Education: React.FC = () => {
-  const educationRef = useRef(null);
-  const isInView = useInView(educationRef, { once: false, amount: 0.1 });
+interface EducationData {
+  id: number;
+  date: string;
+  degree: string;
+  degreeLevel: string;
+  degreeShortName: string;
+  degreeName: string;
+  college: string;
+  location: string;
+}
 
-  const containerVariants = {
-    hidden: {},
+const educationData: EducationData[] = [
+  {
+    id: 1,
+    date: "2020 - 2023",
+    degree: "Graduation",
+    degreeLevel: "Bachelor's Degree",
+    degreeShortName: "BCA",
+    degreeName: "Bachelor of Computer Applications",
+    college: "PSIT College of Higher Education",
+    location: "Bhauti, Kanpur, India",
+  },
+  {
+    id: 2,
+    date: "2017-2019",
+    degree: "Secondry",
+    degreeLevel: "Intermediate",
+    degreeShortName: "PCM",
+    degreeName: "Physics, Chemistry, Mathematics",
+    college: "RBT Vidayalaya",
+    location: "Purva, Deoria, India",
+  },
+];
+
+const EducationCard: React.FC<{ education: EducationData; index: number }> = ({
+  education,
+  index,
+}) => {
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      x: index % 2 === 0 ? -50 : 50,
+      y: 50,
+    },
     visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
       transition: {
-        staggerChildren: 0.2,
+        type: "spring",
+        duration: 0.8,
+        bounce: 0.4,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const contentVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
+        delay: 0.2,
+        duration: 0.5,
       },
     },
   };
 
   return (
-    <section ref={educationRef} className="sm:mt-28 mt-20 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-tight"
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          Education
-        </motion.h2>
-
+    <motion.div
+      className={`relative flex flex-col md:flex-row items-start md:items-center w-full ${
+        index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+      } mb-12 md:mb-24`}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      {/* Timeline dot */}
+      <div className="absolute left-4 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2">
         <motion.div
-          className="relative"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          className="w-5 h-5 rounded-full bg-teal-400 border-4 border-gray-900"
+          whileInView={{ scale: [0, 1.2, 1] }}
+          transition={{ duration: 0.5 }}
+        />
+      </div>
+
+      {/* Card */}
+      <div
+        className={`w-full md:w-5/12 pl-12 md:pl-0 ${
+          index % 2 === 0 ? "md:pr-0" : "md:pl-0"
+        }`}
+      >
+        <motion.div
+          className="bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden hover:border-teal-500/30 transition-all duration-300"
+          variants={contentVariants}
+          whileHover={{ scale: 1.02 }}
         >
-          {/* Timeline */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-teal-400 to-teal-600 transform sm:-translate-x-1/2" />
+          {/* Header with gradient */}
+          <div className="bg-gradient-to-r from-teal-600/20 to-cyan-600/20 p-4">
+            <div className="flex flex-wrap gap-2 mb-2">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                <Calendar className="w-3 h-3 mr-1" />
+                {education.date}
+              </span>
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                <GraduationCap className="w-3 h-3 mr-1" />
+                {education.degreeShortName}
+              </span>
+            </div>
+            <h3 className="text-lg md:text-xl font-bold text-white">
+              {education.degreeName}
+            </h3>
+            <p className="text-teal-300 text-sm mt-1">
+              {education.degreeLevel}
+            </p>
+          </div>
 
-          {educationData.map((education: EducationData, index: number) => (
-            <motion.div
-              key={education.id}
-              className={`flex flex-col sm:flex-row items-start sm:items-center mb-12 sm:mb-16 ${
-                index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-              }`}
-              variants={itemVariants}
-            >
-              <div className="w-full sm:w-1/2 pl-12 sm:px-4 relative">
-                {/* Timeline Node */}
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full border-4 border-teal-600 absolute left-4 sm:left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:hidden block" />
-
-                <motion.div
-                  className="bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-xl shadow-lg sm:shadow-2xl overflow-hidden transform hover:scale-102 transition duration-300"
-                  whileHover={{
-                    scale: 1.05,
-                    rotateY: index % 2 === 0 ? 2 : -2,
-                    rotateX: 2,
-                  }}
-                >
-                  <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                      <span className="bg-teal-600 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
-                        <MdDateRange className="mr-1" />
-                        {education.date}
-                      </span>
-                      <span className="bg-teal-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
-                        <FaGraduationCap className="mr-1" />
-                        {education.degreeShortName}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                      {education.degreeName}
-                    </h3>
-                    <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-                      {education.degreeLevel}
-                    </p>
-
-                    <div className="flex items-center text-gray-300 text-sm sm:text-base mb-2">
-                      <RiSchoolFill className="mr-2 text-teal-400" />
-                      <p>{education.college}</p>
-                    </div>
-
-                    <div className="flex items-center text-gray-300 text-sm sm:text-base">
-                      <FaLocationArrow className="mr-2 text-teal-400" />
-                      <p>{education.location}</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-teal-600 to-teal-500 p-3 sm:p-4">
-                    <p className="text-white text-sm sm:text-base font-semibold">
-                      {education.degree}
-                    </p>
-                  </div>
-                </motion.div>
+          {/* Content */}
+          <div className="p-4">
+            <div className="space-y-2">
+              <div className="flex items-center text-gray-300">
+                <School className="w-4 h-4 mr-2 text-teal-400 flex-shrink-0" />
+                <span className="text-sm">{education.college}</span>
               </div>
-            </motion.div>
-          ))}
+              <div className="flex items-center text-gray-300">
+                <MapPin className="w-4 h-4 mr-2 text-teal-400 flex-shrink-0" />
+                <span className="text-sm">{education.location}</span>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-gray-700/50">
+              <span className="text-sm font-medium text-teal-400">
+                {education.degree}
+              </span>
+            </div>
+          </div>
         </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+const Education: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        duration: 1,
+        bounce: 0.5,
+      },
+    },
+  };
+
+  return (
+    <section className="py-16 md:py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16 md:mb-20"
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Educational Journey
+          </h2>
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Timeline line */}
+          <motion.div
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-400/50 via-teal-400/30 to-transparent"
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            transition={{ duration: 1 }}
+          />
+
+          {/* Education cards */}
+          <motion.div
+            className="relative"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {educationData.map((education, index) => (
+              <EducationCard
+                key={education.id}
+                education={education}
+                index={index}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

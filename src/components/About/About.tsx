@@ -64,6 +64,11 @@ const About: React.FC<AboutProps> = ({ scrollToContact }) => {
           }}
         >
           About Me
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full mt-1"
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
