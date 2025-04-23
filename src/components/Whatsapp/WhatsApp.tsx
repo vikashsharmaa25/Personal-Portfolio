@@ -14,11 +14,14 @@ function WhatsApp() {
   };
 
   return (
-    <div className="rounded-full bg-green-500">
-      <FaWhatsapp
-        className="cursor-pointer text-white  w-12 h-12"
-        onClick={handleWhatsAppClick}
-      />
+    <div
+      onClick={handleWhatsAppClick}
+      className="rounded-full bg-white bg-opacity-90 px-3 py-2 flex justify-center items-center gap-1 cursor-pointer"
+    >
+      <FaWhatsapp className="text-white w-7 h-7 bg-[#128c7e] rounded-full p-1" />
+      <h1 className="capitalize text-black font-medium text-sm">
+        chat with me
+      </h1>
     </div>
   );
 }

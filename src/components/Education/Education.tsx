@@ -83,7 +83,7 @@ const EducationCard: React.FC<{ education: EducationData; index: number }> = ({
       {/* Timeline dot */}
       <div className="absolute left-4 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2">
         <motion.div
-          className="w-5 h-5 rounded-full bg-teal-400 border-4 border-gray-900"
+          className="w-5 h-5 rounded-full bg-teal-400 border-4 border-gray-900 absolute -right-[11px]"
           whileInView={{ scale: [0, 1.2, 1] }}
           transition={{ duration: 0.5 }}
         />

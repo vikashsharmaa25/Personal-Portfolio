@@ -9,6 +9,7 @@ const nextConfig = {
         pathname: "/dms/image/**",
       },
     ],
+    domains: ["trendlyne-media-mumbai-new.s3.amazonaws.com"],
   },
 };
 

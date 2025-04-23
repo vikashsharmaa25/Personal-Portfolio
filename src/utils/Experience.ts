@@ -12,11 +12,26 @@ export interface Experience {
 const experienceData: Experience[] = [
   {
     id: 1,
+    logo: "https://trendlyne-media-mumbai-new.s3.amazonaws.com/profilepicture/2512_profilepicture.png",
+    companyName: "Mastertrust Capital Services Ltd",
+    location: "Delhi, India",
+    date: "Jan-2024 - Present",
+    role: "Front End Developer - Full Time",
+    technology: "Next.js",
+    responsibility: [
+      "Redesigned dashboard using Next.js and TypeScript, cutting load times by 40% and boosting retention by 18%.",
+      "Solved complex frontend issues and used Bitbucket for version control and smooth team collaboration.",
+      "Built a reusable component system with designers, reducing new feature dev time by 25%.",
+      "Integrated backend APIs with TanStack Query to optimize data fetching and improve UI responsiveness.",
+    ],
+  },
+  {
+    id: 2,
     logo: "https://media.licdn.com/dms/image/C4D0BAQHKVMFH-niXIg/company-logo_200_200/0/1637757773341?e=2147483647&v=beta&t=vntN1K4lDPVnScvv95bDBlo0MlqO_jOGRQ0NzqEa5kc",
     companyName: "QuadB Technology",
     location: "Ludhiana, India",
     date: "Jan-2024 - Present",
-    role: "Full Stack Developer - Full Time",
+    role: "Front End Developer - Full Time",
     technology: "React.js",
     responsibility: [
       "Developed and maintained responsive web applications using React.js, boosting user engagement by 25%.",
@@ -26,7 +41,7 @@ const experienceData: Experience[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     logo: "https://media.licdn.com/dms/image/C4D0BAQHKVMFH-niXIg/company-logo_200_200/0/1637757773341?e=2147483647&v=beta&t=vntN1K4lDPVnScvv95bDBlo0MlqO_jOGRQ0NzqEa5kc",
     companyName: "QuadB Technology",
     location: "Ludhiana, India",
