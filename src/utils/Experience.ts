@@ -15,7 +15,7 @@ const experienceData: Experience[] = [
     logo: "https://trendlyne-media-mumbai-new.s3.amazonaws.com/profilepicture/2512_profilepicture.png",
     companyName: "Mastertrust Capital Services Ltd",
     location: "Delhi, India",
-    date: "Jan-2024 - Present",
+    date: "Jan-2025 - Present",
     role: "Front End Developer - Full Time",
     technology: "Next.js",
     responsibility: [
@@ -30,7 +30,7 @@ const experienceData: Experience[] = [
     logo: "https://media.licdn.com/dms/image/C4D0BAQHKVMFH-niXIg/company-logo_200_200/0/1637757773341?e=2147483647&v=beta&t=vntN1K4lDPVnScvv95bDBlo0MlqO_jOGRQ0NzqEa5kc",
     companyName: "QuadB Technology",
     location: "Ludhiana, India",
-    date: "Jan-2024 - Present",
+    date: "Jan-2024 - Dec-2024",
     role: "Front End Developer - Full Time",
     technology: "React.js",
     responsibility: [

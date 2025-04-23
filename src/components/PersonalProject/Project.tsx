@@ -26,7 +26,7 @@ const projectData: ProjectProps[] = [
     description:
       "A comprehensive e-commerce platform for B2B transactions with advanced inventory management and real-time analytics.",
     url: "https://business.owr.app/",
-    github: "https://github.com/yourusername/owr-business",
+    github: "",
     technology: [
       "React.js",
       "TypeScript",
@@ -48,7 +48,7 @@ const projectData: ProjectProps[] = [
     description:
       "A modern YouTube clone with advanced video playback features, custom playlists, and a recommendation engine.",
     url: "https://tubematee.netlify.app",
-    github: "https://github.com/yourusername/tube-mate",
+    github: "https://github.com/vikashsharmaa25/TubeMate",
     technology: [
       "React.js",
       "Tailwind CSS",
