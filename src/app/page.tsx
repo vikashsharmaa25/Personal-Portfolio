@@ -18,27 +18,6 @@ import Skills from "@/components/Skills/Skills";
 import SocialLinks from "@/components/socialLinks/socialLinks";
 import WhatsApp from "@/components/Whatsapp/WhatsApp";
 
-const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-yellow-500 origin-left z-50"
-        style={{ scaleX }}
-      />
-      {children}
-    </>
-  );
-};
-
 const Loading: React.FC = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -203,7 +182,7 @@ const Home: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
         >
           <About scrollToContact={() => scrollToSection(contactRef)} />
         </motion.div>

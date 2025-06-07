@@ -105,11 +105,6 @@ const PrimaryHeroSection: React.FC<PrimaryHeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            {/* <CtaButton
-              onClick={scrollToContact}
-              icon={<HiOutlineMail />}
-              text="Get in Touch"
-            /> */}
             <CtaButton
               onClick={viewResume}
               icon={<HiOutlineDocumentText />}

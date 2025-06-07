@@ -5,23 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-interface NavItem {
-  label: string;
-  onClick: () => void;
-}
-
-interface NavbarProps {
-  scrollToContact: () => void;
-  scrollToAbout: () => void;
-  scrollToEducation: () => void;
-  scrollToExperience: () => void;
-  scrollToSkills: () => void;
-  scrollToProject: () => void;
-  scrollToDiscuss: () => void;
-  scrollToConnect: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({
+const Navbar: React.FC<any> = ({
   scrollToContact,
   scrollToAbout,
   scrollToEducation,
@@ -46,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems: NavItem[] = [
+  const menuItems: any[] = [
     { label: "About", onClick: scrollToAbout },
     { label: "Education", onClick: scrollToEducation },
     { label: "Experience", onClick: scrollToExperience },
