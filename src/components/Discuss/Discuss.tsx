@@ -10,34 +10,6 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
   const discussRef = useRef(null);
   const isInView = useInView(discussRef, { once: false, amount: 0.1 });
 
-  // Container Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        when: "beforeChildren",
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  // Text & Image Animation Variants
-  const textVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 120,
-      },
-    },
-  };
-
   // Image Hover Variants
   const imageHoverVariants = {
     hover: {
@@ -67,13 +39,7 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
   };
 
   return (
-    <motion.section
-      ref={discussRef}
-      className="sm:mt-24 mt-16 text-white"
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-    >
+    <motion.section ref={discussRef} className="mt-10 text-white">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-white leading-tight"
@@ -89,14 +55,8 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
           />
         </motion.h2>
 
-        <motion.div
-          className="grid md:grid-cols-2 gap-12 items-center"
-          variants={containerVariants}
-        >
-          <motion.div
-            className="flex flex-col items-center md:items-start text-center md:text-left"
-            variants={textVariants}
-          >
+        <motion.div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div className="flex flex-col items-center md:items-start text-center md:text-left">
             <motion.div
               className="relative mb-10 w-64 h-64 mx-auto md:mx-0"
               whileHover="hover"
@@ -116,17 +76,11 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
               />
             </motion.div>
 
-            <motion.h1
-              className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500"
-              variants={textVariants}
-            >
+            <motion.h1 className="text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">
               Vikash Sharma
             </motion.h1>
 
-            <motion.h2
-              className="text-2xl sm:text-3xl font-light text-[#dcdce7] mb-8"
-              variants={textVariants}
-            >
+            <motion.h2 className="text-2xl sm:text-3xl font-light text-[#dcdce7] mb-8">
               Full Stack Developer
             </motion.h2>
 
@@ -162,29 +116,17 @@ function Discuss({ scrollToContact }: { scrollToContact: () => void }) {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="bg-[#0a4342] bg-opacity-60 backdrop-blur-lg rounded-3xl sm:p-6 p-3 shadow-2xl sm:-mt-0 -mt-10"
-            variants={textVariants}
-          >
-            <motion.h3
-              className="text-3xl font-bold mb-6 text-[#0aa5a4]"
-              variants={textVariants}
-            >
+          <motion.div className="bg-[#0a4342] bg-opacity-60 backdrop-blur-lg rounded-3xl sm:p-6 p-3 shadow-2xl sm:-mt-0 -mt-10">
+            <motion.h3 className="text-3xl font-bold mb-6 text-[#0aa5a4]">
               Ready to start a project?
             </motion.h3>
-            <motion.p
-              className="text-[#e0d8ee] mb-8 text-lg"
-              variants={textVariants}
-            >
+            <motion.p className="text-[#e0d8ee] mb-8 text-lg">
               {` I'm always excited to take on new challenges and create amazing
               digital experiences. Whether you have a specific project in mind
               or just want to explore possibilities, let's connect and bring
               your ideas to life!`}
             </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-              variants={containerVariants}
-            >
+            <motion.div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <motion.a
                 href="https://drive.google.com/file/d/1tYfmQPJBlbVGZBfnEVxrwOeH_uy43g-X/view?usp=drive_link"
                 target="_blank"

@@ -2,18 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, GraduationCap, MapPin, School } from "lucide-react";
 
-interface EducationData {
-  id: number;
-  date: string;
-  degree: string;
-  degreeLevel: string;
-  degreeShortName: string;
-  degreeName: string;
-  college: string;
-  location: string;
-}
-
-const educationData: EducationData[] = [
+const educationData: any[] = [
   {
     id: 1,
     date: "2020 - 2023",
@@ -36,49 +25,16 @@ const educationData: EducationData[] = [
   },
 ];
 
-const EducationCard: React.FC<{ education: EducationData; index: number }> = ({
+const EducationCard: React.FC<{ education: any; index: number }> = ({
   education,
   index,
 }) => {
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      x: index % 2 === 0 ? -50 : 50,
-      y: 50,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        type: "spring",
-        duration: 0.8,
-        bounce: 0.4,
-      },
-    },
-  };
-
-  const contentVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: 0.2,
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <motion.div
       className={`relative flex flex-col md:flex-row items-start md:items-center w-full ${
         index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-      } mb-12 md:mb-24`}
-      variants={cardVariants}
+      } `}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
     >
       {/* Timeline dot */}
       <div className="absolute left-4 md:left-1/2 top-8 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2">
@@ -95,11 +51,7 @@ const EducationCard: React.FC<{ education: EducationData; index: number }> = ({
           index % 2 === 0 ? "md:pr-0" : "md:pl-0"
         }`}
       >
-        <motion.div
-          className="bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden hover:border-teal-500/30 transition-all duration-300"
-          variants={contentVariants}
-          whileHover={{ scale: 1.02 }}
-        >
+        <div className="bg-gray-800/40 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden hover:border-teal-500/30 transition-all duration-300">
           {/* Header with gradient */}
           <div className="bg-gradient-to-r from-teal-600/20 to-cyan-600/20 p-4">
             <div className="flex flex-wrap gap-2 mb-2">
@@ -139,23 +91,13 @@ const EducationCard: React.FC<{ education: EducationData; index: number }> = ({
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
 };
 
 const Education: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
   const headerVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: {
@@ -190,7 +132,6 @@ const Education: React.FC = () => {
           />
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
           {/* Timeline line */}
           <motion.div
@@ -201,13 +142,7 @@ const Education: React.FC = () => {
           />
 
           {/* Education cards */}
-          <motion.div
-            className="relative"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="relative">
             {educationData.map((education, index) => (
               <EducationCard
                 key={education.id}
@@ -215,7 +150,7 @@ const Education: React.FC = () => {
                 index={index}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

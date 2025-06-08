@@ -113,7 +113,7 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative"
+          className="text-center mb-5 relative"
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -135,7 +135,7 @@ export default function Project() {
         </motion.div>
 
         {/* Category Filter */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
